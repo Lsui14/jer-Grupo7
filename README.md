@@ -2,7 +2,7 @@
 Juego desarrollado por GameNet (integrantes)
 
 ![logo_GameNet](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/logo_gamenet.png)
-![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/Logo_juego_final_p1.png)
+![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/a1d9c343cac7df00d6a255fe5ccf064a5fb0d360/Im%C3%A1genes/Logo_juego_final.png)
 
 ## Descripción del juegos 
 Death Spell es un juego de la compañía GameNet, el cual se puede clasificar con las siguientes características: 
