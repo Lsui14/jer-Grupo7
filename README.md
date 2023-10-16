@@ -24,11 +24,13 @@ Death Spell es un juego de la compañía GameNet, el cual se puede clasificar co
 
 - Interacción: Síncrono por teclado 
 
-En resumen, Death Spell es un juego en red multijugador tanto online como local con una interacción síncrona y de género de lucha y acción basado en la Edad Media oscura con un estilo visual Pixel Art, teniendo una paleta de colores fríos. Además, el propósito de Death Spell es el entretenimiento del cliente, por tanto, el modelo de negocio que aplica es el free to play sin tener necesidad de pagar por ningún elemento o beneficio del juego. 
+En resumen, Death Spell es tanto un juego en red multijugador online como local con una interacción síncrona y de género de lucha y acción, ya que este consistirá en dos jugadores que controlaran dos magos cuyo objetivo será lanzarse hechizos en  una plataforma mientras se mueven libremente hasta derrotar al contrincante. Por otro lado esta basado en la Edad Media oscura con un estilo visual Pixel Art, teniendo una paleta de colores fríos. Además, el propósito de Death Spell es el entretenimiento del cliente, por tanto, el modelo de negocio que aplica es el free to play sin tener necesidad de pagar por ningún elemento o beneficio del juego. 
 
 Por otro lado, la cámara es frontal y se mantiene estática, como en un juego 2D típico. 
 
 A la hora de decidirnos por este juego nos inspiramos principalmente en dos juegos conocidos. En primer lugar, la idea del juego y su arte pixelart están basadas en el juego indie Nidhogg, el cual consiste en un juego de lucha entre dos personas con espadas. 
+
+()
 ## Mecánicas y dinámicas
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
