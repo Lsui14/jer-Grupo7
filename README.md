@@ -1,6 +1,7 @@
 # Death Spell
 Juego desarrollado por GameNet (integrantes)
 
+![logo_GameNet](https://github.com/Lsui14/jer-Grupo7/assets/146940358/07b823e8-ee07-4deb-aa12-c30d5f40a15b)
 ![Logo_juego](https://github.com/Lsui14/jer-Grupo7/assets/146940302/9e5d9c13-02ed-4cc3-94b0-5f1ff081f63b)
 
 
