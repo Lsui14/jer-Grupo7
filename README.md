@@ -49,23 +49,23 @@ Local:
 
 Jugador 1: 
 
-  D: Desplazamiento lateral derecho 
+- D: Desplazamiento lateral derecho 
 
-  A: Desplazamiento lateral izquierdo 
+- A: Desplazamiento lateral izquierdo 
 
-  W: Saltar 
+- W: Saltar 
 
-  E: Atacar 
+- E: Atacar 
 
 Jugador 2: 
 
-  L: Desplazamiento lateral derecho 
+- L: Desplazamiento lateral derecho 
 
-  J: Desplazamiento lateral izquierdo 
+- J: Desplazamiento lateral izquierdo 
 
-  I: Saltar 
+- I: Saltar 
 
-  O: Atacar 
+- O: Atacar 
 
 En red/Online: 
 
