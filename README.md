@@ -30,7 +30,7 @@ Por otro lado, la cámara es frontal y se mantiene estática, como en un juego 2
 
 A la hora de decidirnos por este juego nos inspiramos principalmente en dos juegos conocidos. En primer lugar, la idea del juego y su arte pixelart están basadas en el juego indie Nidhogg, el cual consiste en un juego de lucha entre dos personas con espadas. 
 
-()
+![Nidhogg juego de referencia](https://github.com/Lsui14/jer-Grupo7/blob/a212398bf8d6e2ea13261f6f8bcdc474c2e535d8/Im%C3%A1genes/Nidhogg.png)
 ## Mecánicas y dinámicas
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
