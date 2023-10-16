@@ -4,6 +4,7 @@ Juego desarrollado por GameNet (integrantes)
 ![logo_GameNet](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/logo_gamenet.png)
 ![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/a1d9c343cac7df00d6a255fe5ccf064a5fb0d360/Im%C3%A1genes/Logo_juego_final.png)
 
+
 ## Descripción del juegos 
 Death Spell es un juego de la compañía GameNet, el cual se puede clasificar con las siguientes características: 
 
@@ -77,7 +78,33 @@ Ambos jugadores:
 
 - W: Saltar 
 
-- E: Atacar 
+- E: Atacar
+### Arte
+Para el arte, como la idea del juego era la de hacer un juego ambientado en el medievo, en el que los personajes jugables iban a ser magos, pensamos en un arte oscuro que recuerda al género de fantasía oscura conocido. Además, también nos inspiramos en otro juego muy conocido, hablamos del famoso juego español Blasphemous. 
+
+![ImagenBlasphemous1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Juego%20de%20referencia_Blasphemous_1.png)
+Imagen ingame de Blasphemous
+
+![ImagenBlasphemous2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Imágenes/Juego%20de%20referencia_Blasphemous_2.png)
+Imagen de pelea contra el boss de Blasphemous 
+### Personajes
+Como hemos dicho ya, los personajes jugables son dos magos que se lanzarán hechizos. Como teníamos claro que nuestro juego tenía que ser en pixelart buscamos una serie de sprites gratuitos de uso libre que cuentan con varias animaciones. La animación de ataque fue modificada por nosotros para que el ataque fuese una bola de hielo o fuego que avanza hacia delante. Para el jugador 1, nos encargamos de cambiar los colores del sprite descargado para hacerlo distinguible de su rival.  
+
+https://luizmelo.itch.io/wizard-pack (Link a la página de descarga de los sprites) 
+
+![ImagenAtaqueJ1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J1.png)
+![ImagenAtaqueJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J2.png)
+Animación de ataque modificada de ambos jugadores 
+
+![ImagenCorrerJ1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20run_J1.png)
+![ImagenCorrerJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20run_J2%20(2).png)
+Animación de correr de ambos jugadores 
+
+### Elementos
+Para los ataques de ambos jugadores creamos una bola de fuego pixel por pixel usando el programa Photoshop y para la bola de hielo modificamos los colores de la bola de fuego ya creada. 
+
+![ImagenBolaSprite](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Elemento%20bola%20fuego.png)
+Sprite de la bola de fuego creada 
 ## Escenario
 Para el escenario, se ha utilizado la IA de Bing de generación de imágenes (que utiliza DALLE); Con la que se creó una imagen en proporción 1:1, con la estética Pixelart deseada: “Un paisaje, con estética “PixelArt 2D”, que tenga una temática de fantasía; con motivos apocalípticos o de batalla final” 
 
