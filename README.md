@@ -71,13 +71,13 @@ En red/Online:
 
 Ambos jugadores: 
 
-  D: Desplazamiento lateral derecho 
+- D: Desplazamiento lateral derecho 
 
-  A: Desplazamiento lateral izquierdo 
+- A: Desplazamiento lateral izquierdo 
 
-  W: Saltar 
+- W: Saltar 
 
-  E: Atacar 
+- E: Atacar 
 ## Escenario
 Para el escenario, se ha utilizado la IA de Bing de generación de imágenes (que utiliza DALLE); Con la que se creó una imagen en proporción 1:1, con la estética Pixelart deseada: “Un paisaje, con estética “PixelArt 2D”, que tenga una temática de fantasía; con motivos apocalípticos o de batalla final” 
 
