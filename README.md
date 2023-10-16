@@ -5,7 +5,29 @@ Juego desarrollado por GameNet (integrantes)
 ![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/Logo_juego_final_p1.png)
 
 ## Descripción del juegos 
+Death Spell es un juego de la compañía GameNet, el cual se puede clasificar con las siguientes características: 
 
+- Plataforma: Ordenador (PC) 
+
+- Modelo de negocio: Free to play sin anuncios, busca ser una experiencia gratuita sin micro pagos ni anuncios. 
+
+ - Región: europea, es decir, PEGI 
+
+- Audiencia: Para todas las edades, PEGI 3 
+
+- Género: Lucha, acción 
+
+- Temática: Medieval oscura 
+
+- Propósito: Entretenimiento 
+
+- Interacción: Síncrono por teclado 
+
+En resumen, Death Spell es un juego en red multijugador tanto online como local con una interacción síncrona y de género de lucha y acción basado en la Edad Media oscura con un estilo visual Pixel Art, teniendo una paleta de colores fríos. Además, el propósito de Death Spell es el entretenimiento del cliente, por tanto, el modelo de negocio que aplica es el free to play sin tener necesidad de pagar por ningún elemento o beneficio del juego. 
+
+Por otro lado, la cámara es frontal y se mantiene estática, como en un juego 2D típico. 
+
+A la hora de decidirnos por este juego nos inspiramos principalmente en dos juegos conocidos. En primer lugar, la idea del juego y su arte pixelart están basadas en el juego indie Nidhogg, el cual consiste en un juego de lucha entre dos personas con espadas. 
 ## Mecánicas y dinámicas
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
