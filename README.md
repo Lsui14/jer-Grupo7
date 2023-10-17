@@ -1,5 +1,17 @@
 # Death Spell
-Juego desarrollado por GameNet (David Lozano Varona, Cristina Martínez Otto, Luis Javier Moreno Rojas, Gustavo Herrero Lapuente y María Dolores Nájera-Alesón Hernández de Santamaría  )
+Juego desarrollado por GameNet: 
+
+David Lozano Varona (Chavid72): d.lozano.2021@alumnos.urjc.es
+
+Cristina Martínez Otto (CristinaMartinez24): c.martinezo.2021@alumnos.urjc.es
+
+Luis Javier Moreno Rojas (Lsui14): lj.moreno.2021@alumnos.urjc.es 
+
+Gustavo Herrero Lapuente (gherrerol): g.herrerol.2020@alumnos.urjc.es
+
+María Dolores Nájera-Alesón Hernández de Santamaría (lolanaleson): mad.najeraaleso.2021@alumnos.urjc.es
+
+
 
 ![logo_GameNet](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/logo_gamenet.png)
 ![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/a1d9c343cac7df00d6a255fe5ccf064a5fb0d360/Im%C3%A1genes/Logo_juego_final.png)
