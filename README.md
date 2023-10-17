@@ -10,33 +10,36 @@ Death Spell es un juego de la compañía GameNet, el cual se puede clasificar co
 
 - Plataforma: Ordenador (PC) 
 
-- Modelo de negocio: Free to play sin anuncios, busca ser una experiencia gratuita sin micro pagos ni anuncios. 
+- Modelo de negocio: Free to play sin anuncios, busca ser una experiencia gratuita sin ningún tipo de pago interno. 
 
- - Región: europea, es decir, PEGI 
+ - Región: europea, es decir, PEGI.
 
-- Audiencia: Para todas las edades, PEGI 3 
+- Audiencia: Para todas las edades, PEGI 3.
 
-- Género: Lucha, acción 
+- Género: Lucha, acción.
 
-- Temática: Medieval oscura 
+- Temática: Medieval oscura.
 
-- Propósito: Entretenimiento 
+- Propósito: Entretenimiento.
 
-- Interacción: Síncrono por teclado 
+- Interacción: Síncrono por teclado. 
 
-En resumen, Death Spell es tanto un juego en red multijugador online como local con una interacción síncrona y de género de lucha y acción, ya que este consistirá en dos jugadores que controlaran dos magos cuyo objetivo será lanzarse hechizos en  una plataforma mientras se mueven libremente hasta derrotar al contrincante. Por otro lado esta basado en la Edad Media oscura con un estilo visual Pixel Art, teniendo una paleta de colores fríos. Además, el propósito de Death Spell es el entretenimiento del cliente, por tanto, el modelo de negocio que aplica es el free to play sin tener necesidad de pagar por ningún elemento o beneficio del juego. 
+En resumen, Death Spell es un juego multijugador jugable tanto de forma local como en red, con una interacción síncrona y de género de lucha y acción, ya que este consistirá en dos jugadores que controlaran dos magos cuyo objetivo será lanzarse hechizos en  una plataforma mientras se mueven libremente hasta derrotar al contrincante. Por otro lado esta basado en la Edad Media oscura con un estilo visual Pixel Art, para ser fiel a esta oscuridad, la paleta de colores la forman unos colores fríos. Además, el propósito de Death Spell es el entretenimiento del cliente, por tanto, el modelo de negocio que aplica es el free to play sin tener necesidad de pagar por ningún elemento o beneficio del juego. 
 
 Por otro lado, la cámara es frontal y se mantiene estática, como en un juego 2D típico. 
 
 A la hora de decidirnos por este juego nos inspiramos principalmente en dos juegos conocidos. En primer lugar, la idea del juego y su arte pixelart están basadas en el juego indie Nidhogg, el cual consiste en un juego de lucha entre dos personas con espadas. 
 
 ![Nidhogg juego de referencia](https://github.com/Lsui14/jer-Grupo7/blob/a212398bf8d6e2ea13261f6f8bcdc474c2e535d8/Im%C3%A1genes/Nidhogg.png)
+
+*Imagen juego Nidhogg*
+
 ## Mecánicas y dinámicas
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
-Death Spell consta de un nivel donde se enfrentarán los dos jugadores. Cada uno controlará un tipo de mago (uno de fuego y otro de hielo) y comenzará el combate. El mapa en el que se combatirá dispondrá de una gran plataforma para que los jugadores tengan cierta movilidad y posibilidades a la hora de esquivar y lanzar ataques. 
+Death Spell consta de un nivel donde se enfrentarán dos jugadores. Cada uno controlará un tipo de mago (uno de fuego y otro de hielo) y dando comienzo al combate. El mapa en el que se combatirá dispondrá de una gran plataforma para que los jugadores tengan cierta movilidad y posibilidades a la hora de esquivar y lanzar ataques. 
 
-La batalla acabará en el momento que uno de los dos pierda todas sus vidas. La dificultad de Death Spell viene dada por la habilidad de cada jugador de combatir y esquivar ataques, debido a que es un juego de pelea. 
+La batalla acabará en el momento que uno de los dos pierda sus tres vidas. La dificultad de Death Spell viene dada por la habilidad de cada jugador de lanzar y esquivar ataques, debido a que es un juego de pelea. 
 
 ### Flujo de juego
 Nuestro juego multijugador competitivo funcionará en partidas en las que solo pueden participar 2 jugadores, los cuales tendrán 3 vidas y verán al comienzo un menú de inicio con los botones de jugar, controles, créditos y ajustes. Tras configurar los ajustes y leer los controles, sí así lo desean, podrán comenzar a jugar.  
@@ -48,7 +51,7 @@ Los movimientos o controles serán los clásicos movimientos de los juegos de lu
 
 Los botones asignados para estos movimientos son los siguientes: 
 
-Local: 
+1. Local: 
 
 Jugador 1: 
 
@@ -68,9 +71,9 @@ Jugador 2:
 
 - I: Saltar 
 
-- O: Atacar 
+- O: Atacar
 
-En red/Online: 
+2. En red/Online: 
 
 Ambos jugadores: 
 
@@ -82,7 +85,7 @@ Ambos jugadores:
 
 - E: Atacar
 
-### Arte
+## Arte
 Para el arte, como la idea del juego era la de hacer un juego ambientado en el medievo, en el que los personajes jugables iban a ser magos, pensamos en un arte oscuro que recuerda al género de fantasía oscura conocido. Además, también nos inspiramos en otro juego muy conocido, hablamos del famoso juego español Blasphemous. 
 
 ![ImagenBlasphemous1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Juego%20de%20referencia_Blasphemous_1.png)
@@ -90,10 +93,10 @@ Para el arte, como la idea del juego era la de hacer un juego ambientado en el m
 
 *Imagenes del juego Blasphemous* 
 
-### Personajes
+## Personajes
 Como hemos dicho ya, los personajes jugables son dos magos que se lanzarán hechizos. Como teníamos claro que nuestro juego tenía que ser en pixelart buscamos una serie de sprites gratuitos de uso libre que cuentan con varias animaciones. La animación de ataque fue modificada por nosotros para que el ataque fuese una bola de hielo o fuego que avanza hacia delante. Para el jugador 1, nos encargamos de cambiar los colores del sprite descargado para hacerlo distinguible de su rival.  
 
-https://luizmelo.itch.io/wizard-pack (Link a la página de descarga de los sprites) 
+Procedencia de los sprites: https://luizmelo.itch.io/wizard-pack
 
 ![ImagenAtaqueJ1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J1.png)
 ![ImagenAtaqueJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J2.png)
@@ -103,7 +106,7 @@ https://luizmelo.itch.io/wizard-pack (Link a la página de descarga de los sprit
 ![ImagenCorrerJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20run_J2%20(2).png)
 *Animación de correr de ambos jugadores*
 
-### Elementos
+## Elementos
 Para los ataques de ambos jugadores creamos una bola de fuego pixel por pixel usando el programa Photoshop y para la bola de hielo modificamos los colores de la bola de fuego ya creada. 
 
 ![ImagenBolaSprite](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Elemento%20bola%20fuego.png)
@@ -122,7 +125,7 @@ Link a la ia generadora de imágenes de Bing: https://www.bing.com/create?toWww=
 
 ## Interfaces
 A continuación, mostraremos un boceto de las diferentes interfaces que conforman nuestro juego.  
-En primer lugar, tenemos la interfaz inicial con la que se podrá acceder a las siguientes 4 interfaces: controles, ajustes, créditos y partida del juego.  
+En primer lugar, tenemos la interfaz inicial con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
 
 ![InterfazInicial](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20inicial.png)
 *Interfaz Inicial*
