@@ -1,12 +1,57 @@
+class fireball extends Phaser.Physics.Arcade.Sprite
+{
+    constructor(scene, x, y)
+    {
+        super(scene, x, y, 'fireball');
+    }
+
+    shoot(x, y)
+    {
+        this.body.reset(x, y);
+
+        this.setActive(true);
+        this.setVisible(true);
+
+        this.setVelocityX(500);
+    }
+}
+
+class Attacks extends Phaser.Physics.Arcade.Group
+{
+    constructor(scene)
+    {
+        super(scene.physics.world, scene);
+
+        this.createMultiple({
+            classType: fireball,
+            frameQuantity: 30,
+            active: false,
+            visible: false,
+            key: 'fireball'
+        })
+    }
+
+    shootFireball(x, y)
+    {
+        const fireball = this.getFirstDead(false);
+        if(fireball){
+            fireball.shoot(x, y);
+        }
+    }
+}
+
 class FightScene extends Phaser.Scene 
 {
     constructor()
     {
         super();
+        this.Attacks;
+        this.inputKeys;
     }
     
     preload ()
     {
+        this.load.image('fireball', 'assets/Elemento bola fuego.png');
         this.load.image('sky', 'assets/sky.png');
         this.load.image('escenario', 'assets/escenario.jpg');
         this.load.image('suelo', 'assets/platform.png');
@@ -19,6 +64,8 @@ class FightScene extends Phaser.Scene
     
     create ()
     {
+        this.Attacks = new Attacks(this);
+        this.addEvents();
         this.add.image(450, 253, 'escenario');
         platform = this.physics.add.staticGroup();
     
@@ -136,14 +183,24 @@ class FightScene extends Phaser.Scene
         this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
         this.teclaL= this.input.keyboard.addKey(keyCodes.L);
         this.teclaI= this.input.keyboard.addKey(keyCodes.I);
-        //this.teclaE = this.input.keyboard.addKey(keyCodes,E);
         //this.teclaO = this.input.keyboard.addKey(keyCodes,O);
         //const teclas = this.input.keyboard.keycodes;
         //this.teclasA = this.input.keyboard.addKey(teclas.a);
     
     
     }
+
+    addEvents() {
+		this.inputKeys = [
+			this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E),
+			//this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O),
+		];
+	}
     
+    shootFireball(){
+        this.Attacks.shootFireball(this.player1, this.player1);
+    }
+
     update ()
     {
         if(this.teclaW.isDown && player1.body.touching.down && derecha){
@@ -195,8 +252,12 @@ class FightScene extends Phaser.Scene
             }
         }
     
-        
-    
+        this.inputKeys.forEach(key => {
+			// If key was just pressed down, shoot the laser. We use JustDown to make sure this only fires once.
+			if (Phaser.Input.Keyboard.JustDown(key)) {
+				this.shootFireball();
+			}
+		});
         
         if(this.teclaI.isDown && player2.body.touching.down && derecha2){
             player2.setVelocityY(-500);
