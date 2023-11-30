@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head> 
     <meta charset="UTF-8" />
-    <title>Making your first Phaser 3 Game - Part 2</title>
+    <title>Death Spell</title>
     <script src="phaser.min.js"></script>
     <style type="text/css">
         body {
@@ -50,13 +50,17 @@
         
         this.load.image('escenario', 'assets/escenario.jpg');
         this.load.image('suelo', 'assets/platform.png');
-        
+        this.load.image('plataformaGrande', 'assets/plataforma1.png');
+        this.load.image('plataformaPequena', 'assets/plataforma_p.png');
+
         this.load.image('bola', 'assets/bola.png');
         this.load.image('bola_I', 'assets/bola_l.png');
         this.load.image('bola2', 'assets/bola2.png');
         this.load.image('bola2_I', 'assets/bola2_l.png');
         this.load.spritesheet('magorojo', 'assets/mago1.png', { frameWidth: 98, frameHeight: 94 });
         this.load.spritesheet('magomorado', 'assets/mago2.png', { frameWidth: 98, frameHeight: 94 });
+        this.load.image('corazon_rojo', 'assets/corazon1.png');
+        this.load.image('corazon_morado', 'assets/corazon2.png');
     }
 
     function create ()
@@ -65,7 +69,9 @@
         platform = this.physics.add.staticGroup();
 
         platform.create(450, 480, 'suelo');
-
+        platform.create(450,350,'plataformaPequena');
+        platform.create(225,190,'plataformaGrande');
+        platform.create(675,190,'plataformaGrande');
         
 
         player1 = this.physics.add.sprite(200,350, 'magorojo');
@@ -75,11 +81,24 @@
         player1.setBounce(0.1);
         player1.setCollideWorldBounds(true);
         player1.body.setGravityY(300);
+        player1.vida = 3;
 
         player2.setBounce(0.1);
         player2.setCollideWorldBounds(true);
         player2.body.setGravityY(300);
+        player2.vida = 3;
 
+        Corazon_Rojo = this.physics.add.staticGroup({
+            key: 'corazon_rojo',
+            repeat: player1.vida - 1,
+            setXY: { x: 40, y: 35, stepX:70}
+        })
+
+        Corazon_Morado = this.physics.add.staticGroup({
+            key: 'corazon_morado',
+            repeat: player2.vida - 1,
+            setXY: { x: config.width - 40, y: 35, stepX:-70}
+        })
         
 
         this.physics.add.collider(player1, platform);
@@ -102,10 +121,21 @@
 
         function hitbola (player2, bola)
         {
+            var i = 0;
+            Corazon_Morado.children.iterate(function(child){
+            if(i == player2.vida -1){
+                child.setTint('#FDFEFE'); 
+            }
+            i++;
+
+        })
+            if(player2.vida == 1){
+                player2.setTint(0xff0000);
+            }
             
-            
-            player2.setTint(0xff0000);
-            
+            else{
+                player2.vida--;
+            }
              player2.anims.play('morado left');
              bola.disableBody(true,true);
              countBolas = false;
@@ -122,14 +152,27 @@
         function hitbolaMorada (player1, bolaMorada)
         {
 
+            var i = 0;
+            Corazon_Rojo.children.iterate(function(child){
+            if(i == player1.vida -1){
+                child.setTint('#FDFEFE');
+            }
+            i++;
+
+        })
+            if(player1.vida == 1){
+                player1.setTint(0xff0000);
+            }
             
+            else{
+                player1.vida--;
+            }
             
             player1.setTint(0xff0000);
             player1.anims.play('rojo right');
             bolaMorada.disableBody(true,true);
             countBolasMorada = false;
             numBolasMorada--;
-
          
         }
 
@@ -185,7 +228,7 @@
 
         this.anims.create({
             key: 'rojo jump left',
-            frames: [{key: 'magorojo', frame: 13}],
+            frames: [{key: 'magorojo', frame: 11}],
             framRate: 20,
             repeat: -1
 
@@ -241,7 +284,7 @@
 
         this.anims.create({
             key: 'morado jump left',
-            frames: [{ key: 'magomorado', frame: 13}],
+            frames: [{ key: 'magomorado', frame: 11}],
             framRate: 20,
             
 
@@ -293,12 +336,12 @@
 
 
         else if(this.teclaW.isDown && player1.body.touching.down && derecha){
-            player1.setVelocityY(-400);
+            player1.setVelocityY(-500);
             player1.anims.play('rojo jump right', true);
         }
 
         else if(this.teclaW.isDown && player1.body.touching.down && !derecha){
-            player1.setVelocityY(-400);
+            player1.setVelocityY(-500);
             player1.anims.play('rojo jump left', true);
         }
         else if(this.teclaA.isDown){
