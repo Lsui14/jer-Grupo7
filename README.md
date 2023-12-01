@@ -135,6 +135,13 @@ Link a la IA generadora de imágenes de Bing: https://www.bing.com/create?toWww=
 ![Escenario](https://github.com/Lsui14/jer-Grupo7/blob/main/Im%C3%A1genes/Escenario.png)
 *Interfaz escenario*
 
+## Música y sonidos
+Desde un principio, se quería que Death Spell contase con banda sonora y para ello hemos usado una página web que cuenta con muchos sonidos de uso libre en formato .mp3 (formato html y javascrpit). El enlace de dicha página se encuentra al final del documento.
+Siguiendo con la temática medieval y arcade hemos escogido sonidos relacionados con estos para evitar que la música desentone.
+En primer lugar hemos escogido para el menú de inicio una versión de la entradilla de la famosa serie "juego de tronos" versionada a violín.
+Para la pantalla de juego, nos hemos decantado por una canción medieval de acción que encaja con el estilo del juego.
+En cuanto a los efectos de sonido, hemos escogido sonidos para todas las acciones posibles del juego, desde efectos para las bolas de fuego y hielo hasta efectos para cuando uno de los personajes es golpeado.
+Todos los efectos de sonido y música usados se encuentran en una carpeta accesible.
 ## Interfaces
 A continuación, mostraremos un boceto de las diferentes interfaces que conforman nuestro juego.  
 En primer lugar, tenemos la interfaz inicial con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
@@ -171,5 +178,7 @@ La interfaz de juego está constituida por unos corazones que indicarán la vida
 Link generador de imágenes de Microsoft Bing: https://www.bing.com/create?toWww=1&redig=40851FEC9174485487F9A69C3F3BDE5C 
 
 Link procedencia de los sprites: https://luizmelo.itch.io/wizard-pack
+
+Link procedencia sonidos: http://www.sonidosmp3gratis.com/
 
 Link GitHub: https://github.com/Lsui14/jer-Grupo7
