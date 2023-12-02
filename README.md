@@ -46,6 +46,10 @@ A la hora de decidirnos por este juego, nos inspiramos principalmente en dos jue
 
 *Imagen juego Nidhogg*
 
+## Historia del juego
+En una tierra muy lejana, existe una ciudad oculta en las montañas conformada únicamente por una sociedad de magos. Una vez cada diez años, los magos deberán competir en un torneo de combates mortales llamado Death Spell en el que el vencedor será proclamado 
+como el Hechizero Supremo.
+
 ## Mecánicas y dinámicas
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
