@@ -1,10 +1,40 @@
 <!doctype html> 
 <html lang="en"> 
 <head> 
+
+    <script src="phaser.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="hoja_de_estilos.css"/>
+    
 </head>
+
+<div>
 <body>
+    <script src="escenas/menu.js"></script>
+    <script src="escenas/game.js"></script>
+    <script src="escenas/victoria1.js"></script>
+    <script src="escenas/victoria2.js"></script>
 
+    <script>
 
+    var config = {
+        type: Phaser.AUTO,
+        width: 900,
+        height: 506,
+        physics:{
+            default: 'arcade',
+            arcade:{
+                gravity: { y: 300},
+                debug: false
+            }
+        },
+        scene: [ Menu, Game, Victoria1, Victoria2]
+    };
+    
+    var game = new Phaser.Game(config);
+
+    </script>
 
 </body>
+</div>
+
 </html>
