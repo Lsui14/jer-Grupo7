@@ -39,6 +39,14 @@ var Game = new Phaser.Class({
     this.load.spritesheet('magorojo', 'assets/mago1.png', { frameWidth: 98, frameHeight: 94 });
     this.load.spritesheet('magomorado', 'assets/mago2.png', { frameWidth: 98, frameHeight: 94 });
 
+    this.load.audio('musicajuego','musica/MusicaPelea.mp3');
+    this.load.audio('golpehielo', 'musica/GolpeadoH.mp3');
+    this.load.audio('golpefuego','musica/Golpeado.mp3');
+    this.load.audio('bolafuego','musica/BolaFuego.mp3');
+    this.load.audio('bolahielo','musica/BolaHielo.mp3');
+    this.load.audio('pulsado','musica/Pulsado.mp3');
+    this.load.audio('boton','musica/Hover.mp3');
+
     this.load.spritesheet('Rajustes', 'interfaces/ajustes.png', { frameWidth: 92, frameHeight: 89 });
 
     },
@@ -46,6 +54,22 @@ var Game = new Phaser.Class({
     create ()
     {
     this.add.image(450, 253, 'escenario');
+
+    pulsar = this.sound.add('pulsado');
+    boton = this.sound.add('boton');
+
+    if (this.game.musicaGlobal.musica) {
+        this.game.musicaGlobal.musica.stop();
+        this.game.musicaGlobal.musica = this.sound.add('musicajuego');
+        this.game.musicaGlobal.musica.setVolume(0.5);
+        this.game.musicaGlobal.musica.play();
+    };
+
+    sonido1 = this.sound.add('golpehielo');
+    sonido2 = this.sound.add('golpefuego');
+    sonido3 = this.sound.add('bolafuego');
+    sonido4 = this.sound.add('bolahielo');
+
     platform = this.physics.add.staticGroup();
 
     platform.create(450, 480, 'suelo');
@@ -106,6 +130,7 @@ var Game = new Phaser.Class({
 
     function hitbola (player2, bola)
     {
+        sonido2.play();
         var i = 0;
         Corazon_Morado.children.iterate(function(child){
         if(i == player2.vida -1){
@@ -146,7 +171,7 @@ var Game = new Phaser.Class({
 
     function hitbolaMorada (player1, bolaMorada)
     {
-        
+        sonido1.play();
         var i = 0;
         Corazon_Rojo.children.iterate(function(child){
         if(i == player1.vida -1){
@@ -324,11 +349,24 @@ var Game = new Phaser.Class({
     this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
     this.teclaL= this.input.keyboard.addKey(keyCodes.L);
     this.teclaI= this.input.keyboard.addKey(keyCodes.I);
-    this.spacebar= this.input.keyboard.addKey(keyCodes.E);
+    this.teclaE= this.input.keyboard.addKey(keyCodes.E);
     this.teclaO = this.input.keyboard.addKey(keyCodes.O);
     this.teclaU = this.input.keyboard.addKey(keyCodes.U);
 
+    this.ajustes = this.add.sprite(60, 50, 'Rajustes').setInteractive();
 
+    this.ajustes.on('pointerover', () => {
+        boton.play();
+      this.ajustes.setFrame(1);
+    });
+    this.ajustes.on('pointerout', () => {
+      this.ajustes.setFrame(0);
+    });
+    this.ajustes.on('pointerdown', () => {
+    pulsar.play();
+      this.scene.pause('Game');
+      this.scene.launch('AjustesP')
+    });
 
 
 
@@ -339,13 +377,14 @@ var Game = new Phaser.Class({
 
     
     
-     if (this.spacebar.isDown && derecha){
+     if (this.teclaE.isDown && derecha){
         player1.anims.play('rojo atack right', true);
 
         if(countBolas == false && numBolas < 2){
             bolas = bola.create (player1.x + 40, player1.y - 30, 'bola');
             bolas.setGravityY(200);
             bolas.setVelocity(400, -200);
+            sonido3.play();
             countBolas = true;
             numBolas++;
         }
@@ -355,13 +394,14 @@ var Game = new Phaser.Class({
 
     
 
-    else if (this.spacebar.isDown && !derecha){
+    else if (this.teclaE.isDown && !derecha){
         player1.anims.play('rojo atack left', true);
 
         if(countBolas == false && numBolas < 2){
             var bolas = bola.create (player1.x - 40, player1.y - 30, 'bola_I');
             bolas.setGravityY(200);
             bolas.setVelocity(-400, -200);
+            sonido4.play();
             countBolas = true;
             numBolas++;
         }

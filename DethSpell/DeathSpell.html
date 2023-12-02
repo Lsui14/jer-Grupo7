@@ -9,6 +9,10 @@
 
 <div>
 <body>
+    <script src = "escenas/controles.js"></script>
+    <script src = "escenas/creditos.js"></script>
+    <script src="escenas/ajustes.js"></script>
+    <script src="escenas/ajustes_partida.js"></script>
     <script src="escenas/menu.js"></script>
     <script src="escenas/game.js"></script>
     <script src="escenas/victoria1.js"></script>
@@ -27,11 +31,13 @@
                 debug: false
             }
         },
-        scene: [ Menu, Game, Victoria1, Victoria2]
+        scene: [ Menu, Game, Ajustes,AjustesP, Creditos, Controles, Victoria1, Victoria2]
     };
     
     var game = new Phaser.Game(config);
-
+    game.musicaGlobal = {
+        musica: null
+    };
     </script>
 
 </body>

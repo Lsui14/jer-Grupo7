@@ -10,11 +10,19 @@ var Victoria2 = new Phaser.Class({
     
     preload(){
         this.load.image('victoriamago2', 'interfaces/interfaz_victoria2.jpg');
+                this.load.audio('ganar','musica/Ganar.mp3');
+
     },
     
     create() {
        this.add.image(450,253,'victoriamago2');
-        iniciar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        ganar = this.sound.add('ganar');
+       if(this.game.musicaGlobal.musica){
+        this.game.musicaGlobal.musica.stop();
+        this.game.musicaGlobal.musica = null;
+       }
+       ganar.play();
+       iniciar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     },
 
     update(){

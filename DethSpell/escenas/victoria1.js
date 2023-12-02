@@ -10,10 +10,18 @@ var Victoria1 = new Phaser.Class({
     
     preload(){
         this.load.image('victoriamago1', 'interfaces/interfaz_victoria1.jpg');
+        this.load.audio('ganar','musica/Ganar.mp3');
     },
     
     create() {
        this.add.image(450,253,'victoriamago1');
+       ganar = this.sound.add('ganar');
+       if(this.game.musicaGlobal.musica){
+        this.game.musicaGlobal.musica.stop();
+        this.game.musicaGlobal.musica = null;
+
+       }
+       ganar.play();
         iniciar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     },
 
@@ -21,5 +29,6 @@ var Victoria1 = new Phaser.Class({
         if(iniciar.isDown){
             this.scene.start('Menu');
         }
+        
     }
 });
