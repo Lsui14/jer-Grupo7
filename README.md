@@ -54,7 +54,9 @@ como el Hechizero Supremo.
 En esta sección entraremos en detalles en las mecánicas de Death Spell. Se explicarán las bases del juego y se detallarán las acciones que podrán llevar a cabo ambos jugadores. 
 ### Jugabilidad
 Death Spell consta de un nivel donde se enfrentarán dos jugadores. Cada uno controlará un tipo de mago (uno de fuego y otro de hielo) y dando comienzo al combate. El mapa en el que se combatirá dispondrá de una gran plataforma para que los jugadores tengan cierta movilidad y posibilidades a la hora de esquivar y lanzar ataques. 
+
 Cada mago podrá lanzar únicamente dos ataques hasta que alguno de los dos impacte, ya sea en una plataforma o en el enemigo. Cuando un mago recibe un ataque, se vuelve de color rojo entero y adquiere un breve periodo de invulnerabilidad hasta que el otro mago deje de atacar. Sólo podrá volver a hacerle daño cuando se acabe dicho efecto visual y vuelva a su color normal, para evitar el spameo de ataques.
+
 La batalla acabará en el momento en el que uno de los dos pierda sus 3 vidas. La dificultad de Death Spell viene dada por la habilidad de cada jugador de lanzar y esquivar ataques, debido a que es un juego de pelea. 
 
 ### Flujo de juego
