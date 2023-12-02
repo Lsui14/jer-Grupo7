@@ -9,6 +9,8 @@ var countBolasMorada = false;
 var numBolasMorada = 0;
 var bola;
 var bolas;
+var josh;
+var joshimage;
 
 
 
@@ -25,7 +27,10 @@ var Game = new Phaser.Class({
 
     preload ()
     {
-    
+    this.load.image('borde_abajo', 'assets/borde_abajo.png');
+    this.load.image('borde_arriba', 'assets/borde_arriba.png');
+    this.load.image('borde_der', 'assets/borde_der.png');
+    this.load.image('borde_izq', 'assets/borde_izq.png');
     this.load.image('escenario', 'assets/escenario.jpg');
     this.load.image('suelo', 'assets/platform.png');
     this.load.image('plataformaGrande', 'assets/plataforma1.png');
@@ -38,6 +43,8 @@ var Game = new Phaser.Class({
     this.load.image('corazon_morado', 'assets/corazon2.png');
     this.load.spritesheet('magorojo', 'assets/mago1.png', { frameWidth: 98, frameHeight: 94 });
     this.load.spritesheet('magomorado', 'assets/mago2.png', { frameWidth: 98, frameHeight: 94 });
+    
+    this.load.image('josh', 'assets/image.png')
 
     this.load.audio('musicajuego','musica/MusicaPelea.mp3');
     this.load.audio('golpehielo', 'musica/GolpeadoH.mp3');
@@ -46,14 +53,26 @@ var Game = new Phaser.Class({
     this.load.audio('bolahielo','musica/BolaHielo.mp3');
     this.load.audio('pulsado','musica/Pulsado.mp3');
     this.load.audio('boton','musica/Hover.mp3');
-
+    this.load.audio('joshaudio', 'musica/Whistle_8bit.mp3');
+    
     this.load.spritesheet('Rajustes', 'interfaces/ajustes.png', { frameWidth: 92, frameHeight: 89 });
 
     },
 
     create ()
     {
-    this.add.image(450, 253, 'escenario');
+        const timeline = this.add.timeline([
+            {
+                at: 6000,
+                run: () => {josh.setVisible(true);
+                    joshaudio.setVolume(0.9);
+                    joshaudio.play();
+                josh.setVelocity(100,0);         
+                }
+            }
+        ])
+    
+    
 
     pulsar = this.sound.add('pulsado');
     boton = this.sound.add('boton');
@@ -70,14 +89,26 @@ var Game = new Phaser.Class({
     sonido3 = this.sound.add('bolafuego');
     sonido4 = this.sound.add('bolahielo');
 
+    timeline.play();
+    this.add.image(450, 253, 'escenario');
     platform = this.physics.add.staticGroup();
+
+    borde = this.physics.add.staticGroup();
+    joshaudio = this.sound.add('joshaudio');
+    joshaudio.setVolume(0.1);
+    josh = this.physics.add.group();
+    josh.create(150,200, 'josh').setScale(0.5).refreshBody();
 
     platform.create(450, 480, 'suelo');
     platform.create(450,350,'plataformaPequena');
     platform.create(225,190,'plataformaGrande');
     platform.create(675,190,'plataformaGrande');
-    
 
+    borde.create(config.width/2,config.height - 5,'borde_abajo');
+    borde.create(config.width/2,5, 'borde_arriba');
+    borde.create(config.width - 5,config.height/2, 'borde_der');
+    borde.create(5,config.height/2, 'borde_izq');
+    
     player1 = this.physics.add.sprite(200,350, 'magorojo');
     player2 = this.physics.add.sprite(700,350, 'magomorado');
     
@@ -112,13 +143,26 @@ var Game = new Phaser.Class({
     this.physics.add.collider(player2, platform);
     this.physics.add.collider(player2, player1);
 
+    josh.setVisible(false);
+    this.physics.add.collider(josh,borde, parar, null, this);
+    this.physics.add.overlap(player1, joshimage);
+    this.physics.add.overlap(josh, player2);
+    this.physics.add.overlap(platform, josh);
+
+    function parar(josh,borde){
+        
+        joshaudio.stop();
+        josh.disableBody(true,true);  
+    }
 
     bola = this.physics.add.group();
     this.physics.add.collider(player2, bola, hitbola, null, this);
+    this.physics.add.collider(borde, bola, Desaparecer, null, this);
     this.physics.add.collider(platform, bola, Desaparecer, null, this);
 
     bolaMorada = this.physics.add.group();
     this.physics.add.collider(player1, bolaMorada, hitbolaMorada, null, this);
+    this.physics.add.collider(borde, bolaMorada, DesaparecerMorada, null, this);
     this.physics.add.collider(platform, bolaMorada, DesaparecerMorada, null, this);
 
     function Desaparecer(platform, bola){
@@ -382,9 +426,9 @@ var Game = new Phaser.Class({
 
         if(countBolas == false && numBolas < 2){
             bolas = bola.create (player1.x + 40, player1.y - 30, 'bola');
-            bolas.setGravityY(200);
-            bolas.setVelocity(400, -200);
-            sonido3.play();
+            //bolas.setGravityY(200);
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
             countBolas = true;
             numBolas++;
         }
@@ -399,9 +443,9 @@ var Game = new Phaser.Class({
 
         if(countBolas == false && numBolas < 2){
             var bolas = bola.create (player1.x - 40, player1.y - 30, 'bola_I');
-            bolas.setGravityY(200);
-            bolas.setVelocity(-400, -200);
-            sonido4.play();
+            //bolas.setGravityY(200);
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
             countBolas = true;
             numBolas++;
         }
@@ -465,8 +509,9 @@ var Game = new Phaser.Class({
         player2.anims.play('morado atack right', true);
         if(countBolasMorada == false && numBolasMorada < 2){
             var bolas = bolaMorada.create (player2.x + 40, player2.y - 30, 'bola2');
-            bolas.setGravityY(200);
-            bolas.setVelocity(400, -200);
+            //bolas.setGravityY(200);
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
             countBolasMorada = true;
             numBolasMorada++;
         }
@@ -476,8 +521,9 @@ var Game = new Phaser.Class({
         player2.anims.play('morado atack left', true);
         if(countBolasMorada == false && numBolasMorada < 2){
             var bolas = bolaMorada.create (player2.x - 40, player2.y - 30, 'bola2_I');
-            bolas.setGravityY(200);
-            bolas.setVelocity(-400, -200);
+            //bolas.setGravityY(200);
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
             countBolasMorada = true;
             numBolasMorada++;
         }
