@@ -13,8 +13,8 @@ María Dolores Nájera-Alesón Hernández de Santamaría (lolanaleson): mad.naje
 
 
 
-![logo_GameNet](https://github.com/Lsui14/jer-Grupo7/blob/7cdb6cb4aade57e0cdba2098bd5cba464702b21f/Im%C3%A1genes/logo_gamenet.png)
-![Logo_juego](https://github.com/Lsui14/jer-Grupo7/blob/a1d9c343cac7df00d6a255fe5ccf064a5fb0d360/Im%C3%A1genes/Logo_juego_final.png)
+![logo_GameNet](Imágenes/logo_gamenet.png)
+![Logo_juego](Imágenes/Logo_juego_final.png)
 
 
 ## Descripción del juegos 
@@ -42,7 +42,7 @@ Por otro lado, la cámara es frontal y se mantiene estática, como en un juego 2
 
 A la hora de decidirnos por este juego, nos inspiramos principalmente en dos juegos conocidos. En primer lugar, la idea del juego y su arte pixel art están basadas en el juego indie Nidhogg, el cual consiste en un juego de lucha entre dos personas con espadas. 
 
-![Nidhogg juego de referencia](https://github.com/Lsui14/jer-Grupo7/blob/a212398bf8d6e2ea13261f6f8bcdc474c2e535d8/Im%C3%A1genes/Nidhogg.png)
+![Nidhogg juego de referencia](Imágenes/Nidhogg.png)
 
 *Imagen juego Nidhogg*
 
@@ -116,13 +116,10 @@ Como hemos dicho ya, los personajes jugables son dos magos que se lanzarán hech
 
 Procedencia de los sprites: https://luizmelo.itch.io/wizard-pack
 
-![ImagenAtaqueJ1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J1.png)
-![ImagenAtaqueJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20ataque_J2.png)
-*Animación de ataque modificada de ambos jugadores* 
+![SpritesJ1](Imágenes/mago1.png)
+![SpritesJ2](Imágenes/mago2.png)
+*Todos los Sprites de los dos jugadores* 
 
-![ImagenCorrerJ1](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20run_J1.png)
-![ImagenCorrerJ2](https://github.com/Lsui14/jer-Grupo7/blob/be539a7a950386871ccc82583ad7ae2cfe3fd6c5/Im%C3%A1genes/Sprites%20run_J2%20(2).png)
-*Animación de correr de ambos jugadores*
 
 ## Elementos
 Para los ataques de ambos jugadores creamos una bola de fuego pixel por pixel usando el programa Photoshop y para la bola de hielo modificamos los colores de la bola de fuego ya creada. 
@@ -138,7 +135,7 @@ En Photoshop, se adaptó a la proporción 16:9 de la pantalla y con las herramie
 
 Link a la IA generadora de imágenes de Bing: https://www.bing.com/create?toWww=1&redig=40851FEC9174485487F9A69C3F3BDE5C
 
-![Escenario](https://github.com/Lsui14/jer-Grupo7/blob/main/Im%C3%A1genes/Escenario.png)
+![Escenario](Imágenes/escenario2.png)
 *Interfaz escenario*
 
 ## Música y sonidos
