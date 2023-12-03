@@ -62,8 +62,10 @@ La batalla acabará en el momento en el que uno de los dos pierda sus 3 vidas. L
 ### Power Ups
 Además, para ampliar la jugabilidad se han añadido unos power ups que irán apareciendo cada cierto tiempo en la partida:
 - Gato curativo: Este power up consta de un gato mago que mediante un hechizo concede una de sus 7 vidas al jugador que le toque.
+
  ![Gato Power Up](Imágenes/Gato_PowerUp.PNG)
 - Multiplicador de ataque: Una bola de fuego roja que otorga un hechizo ancestral al mago que lo consuma. El hechizo permitira lanzar 3 bolas de fuego para atacar al enemigo.
+
   ![Bola_De_Fuego](Imágenes/Bola_De_Fuego.PNG)
 
 ### Flujo de juego
