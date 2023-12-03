@@ -14,6 +14,8 @@ var AjustesP = new Phaser.Class({
         this.load.spritesheet('audio_off', 'interfaces/audiooff.png',  { frameWidth: 180, frameHeight: 169 });
         this.load.spritesheet('flecha', 'interfaces/flecha.png',  { frameWidth: 164, frameHeight: 109 });
 
+        this.load.spritesheet('salir', 'interfaces/boton_salir.png',  { frameWidth: 282, frameHeight: 105 });
+
         this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
 
         this.load.audio('pulsado','musica/Pulsado.mp3');
@@ -64,9 +66,29 @@ var AjustesP = new Phaser.Class({
       });
       this.flecha.on('pointerdown', () => {
         pulsar.play();
+        this.scene.stop("AjustesP")
         this.scene.resume("Game")
-        this.scene.sleep("AjustesP")
       });
+
+      this.salir = this.add.sprite(450, 370, 'salir').setInteractive();
+
+      this.salir.on('pointerover', () => {
+        boton.play();
+        this.salir.setFrame(1);
+      });
+
+      this.salir.on('pointerout', () => {
+        this.salir.setFrame(0);
+      });
+
+      this.salir.on('pointerdown', () => {
+        pulsar.play();
+
+        this.scene.pause("AjustesP")
+        this.scene.start("PreguntaSalir")
+       
+  
+    }); 
 
     },
 

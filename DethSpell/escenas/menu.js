@@ -38,11 +38,13 @@ var Menu = new Phaser.Class({
     pulsar = this.sound.add('pulsado');
     boton = this.sound.add('boton');
 
+    
     if (!this.game.musicaGlobal.musica) {
       this.game.musicaGlobal.musica = this.sound.add('musicamenu');
       this.game.musicaGlobal.musica.setVolume(0.5);
       this.game.musicaGlobal.musica.play();
-  };
+    };
+
      this.jugar = this.add.sprite(450, 290, 'jugar').setInteractive();
 
      this.jugar.on('pointerover', () => {
@@ -111,6 +113,12 @@ var Menu = new Phaser.Class({
     },
 
     update(){
-       
+      /*
+      if (!this.game.musicaGlobal.musica) {
+        this.game.musicaGlobal.musica = this.sound.add('musicamenu');
+        this.game.musicaGlobal.musica.setVolume(0.5);
+        this.game.musicaGlobal.musica.play();
+      }; 
+      */
     }
 });

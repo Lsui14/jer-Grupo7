@@ -11,7 +11,7 @@ var bola;
 var bolas;
 var josh;
 var joshimage;
-
+var variablejose= false;
 
 
 var Game = new Phaser.Class({
@@ -98,6 +98,7 @@ var Game = new Phaser.Class({
     joshaudio.setVolume(0.1);
     josh = this.physics.add.group();
     josh.create(150,200, 'josh').setScale(0.5).refreshBody();
+
 
     platform.create(450, 480, 'suelo');
     platform.create(450,350,'plataformaPequena');
@@ -188,6 +189,7 @@ var Game = new Phaser.Class({
             player2.setTint(0xff0000);
             player2.vida--;
             joshaudio.stop();
+            variablejose = false;
             this.scene.start('Victoria1');          
         }
         
@@ -230,6 +232,7 @@ var Game = new Phaser.Class({
             player1.setTint(0xff0000);
             player1.vida--;
             joshaudio.stop();
+            variablejose=false;
             this.scene.start('Victoria2');   
         }
         
@@ -410,6 +413,8 @@ var Game = new Phaser.Class({
     });
     this.ajustes.on('pointerdown', () => {
     pulsar.play();
+        joshaudio.pause();
+        variablejose = true;
       this.scene.pause('Game');
       this.scene.launch('AjustesP')
     });
@@ -421,10 +426,14 @@ var Game = new Phaser.Class({
  update ()
 {
 
+    if(variablejose){
+        joshaudio.resume();
+    }
     
     
      if (this.teclaE.isDown && derecha){
         player1.anims.play('rojo atack right', true);
+        sonido3.play();
 
         if(countBolas == false && numBolas < 2){
             bolas = bola.create (player1.x + 40, player1.y - 30, 'bola');
@@ -442,8 +451,10 @@ var Game = new Phaser.Class({
 
     else if (this.teclaE.isDown && !derecha){
         player1.anims.play('rojo atack left', true);
+        
 
         if(countBolas == false && numBolas < 2){
+            sonido3.play();
             var bolas = bola.create (player1.x - 40, player1.y - 30, 'bola_I');
             //bolas.setGravityY(200);
             bolas.setVelocity(-400, 0);
@@ -509,7 +520,9 @@ var Game = new Phaser.Class({
 
     if (this.teclaO.isDown && derecha2){
         player2.anims.play('morado atack right', true);
+        
         if(countBolasMorada == false && numBolasMorada < 2){
+            sonido4.play();
             var bolas = bolaMorada.create (player2.x + 40, player2.y - 30, 'bola2');
             //bolas.setGravityY(200);
             bolas.setVelocity(400, 0);
@@ -521,7 +534,9 @@ var Game = new Phaser.Class({
     }
     else if (this.teclaO.isDown && !derecha2){
         player2.anims.play('morado atack left', true);
+        
         if(countBolasMorada == false && numBolasMorada < 2){
+            sonido4.play();
             var bolas = bolaMorada.create (player2.x - 40, player2.y - 30, 'bola2_I');
             //bolas.setGravityY(200);
             bolas.setVelocity(-400, 0);
