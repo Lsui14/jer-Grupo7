@@ -152,32 +152,49 @@ Todos los efectos de sonido y música usados se encuentran en una carpeta accesi
 A continuación, mostraremos un boceto de las diferentes interfaces que conforman nuestro juego.  
 En primer lugar, tenemos la interfaz inicial con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
 
-![InterfazInicial](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20inicial.png)
+![InterfazInicial](Imágenes/Interfaces_nuevas/Menu.PNG)
 *Interfaz Inicial*
 
 La interfaz de controles sirve de ayuda a los usuarios para que sepan cómo pueden moverse en el escenario y atacar a su rival.
-![InterfazControles](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20controles.png)
+![InterfazControles](Imágenes/Interfaces_nuevas/Controles.PNG)
 *Interfaz de Controles*
 
 La interfaz de ajuste sirve para dar la opción al jugador de jugar con música de fondo o no.  
-![InterfazAjustes](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20ajustes.png)
+![InterfazAjustes](Imágenes/Interfaces_nuevas/Ajustes.PNG)
 *Interfaz de Ajustes*
 
 La interfaz de los créditos, tal y como su nombre indica, sirve para dar a conocer a los jugadores los integrantes que forman el equipo de desarrollo. 
-![InterfazCreditos](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20de%20cr%C3%A9ditos.png)
+![InterfazCreditos](Imágenes/Interfaces_nuevas/Creditos.PNG)
 *Interfaz de Créditos*
 
 La interfaz de juego está constituida por unos corazones que indicarán la vida de los jugadores, estos irán desapareciendo a medida que sufran daño. Una vez un jugador se quede con 0 vidas, saltará la última interfaz que indica el jugador que ha ganado. 
 
-![InterfazPartida](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20partida.png)
+![InterfazPartida](Imágenes/Interfaces_nuevas/Game.PNG)
+
 *Interfaz Partida*
 
-![InterfazGanaJugador1](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20gana%20j1.png)
+![InterfazGanaJugador1](Imágenes/Interfaces_nuevas/Victoria1.PNG)
+
 *Interfaz Gana Jugador 1*
 
-![InterfazGanaJugador2](https://github.com/Lsui14/jer-Grupo7/blob/bed34497f3be10ac522bdc3082edfb9ff365a2d2/Im%C3%A1genes/Interfaz%20gana%20j2.png)
+![InterfazGanaJugador2](Imágenes/Interfaces_nuevas/Victoria2.PNG)
+
 *Interfaz Gana Jugador 2*
 
+En la pantalla de partida también cabe la posibilidad de acceder a ajustes para activar o desactivar el sonido, dándote también la posibilidad de salir a la pantalla principal o volver a la de partida. 
+![InterfazAjustesPartida](Imágenes/Interfaces_nuevas/AjustesP.PNG)
+
+*Interfaz Ajustes Partida*
+
+Si decides pulsar el botón de salir te dirige a una nueva pantalla en la cual se pregunta si está seguro de que desea abandonar la partida, si es así vuelve al menú y si no vuelve a la pantalla de ajustes anterior.
+![InterfazPreguntarSalir](Imágenes/Interfaces_nuevas/PreguntaSalir.PNG)
+
+*Interfaz Preguntar Salir*
+
+A continuación se puede observar en el flujo de interfaces lo comentado anteriormente de forma más rápida y visual. 
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Fluejo de Interfaces*
 
 ## Enlaces a elementos usados 
 
