@@ -64,7 +64,7 @@ Además, para ampliar la jugabilidad se han añadido unos power ups que irán ap
 - Gato curativo: Este power up consta de un gato mago que mediante un hechizo concede una de sus 7 vidas al jugador que le toque.
  ![Gato Power Up](Imágenes/Gato_PowerUp.PNG)
 - Multiplicador de ataque: Una bola de fuego roja que otorga un hechizo ancestral al mago que lo consuma. El hechizo permitira lanzar 3 bolas de fuego para atacar al enemigo.
-  ![Gato Power Up](Imágenes/Bola_De_Fuego.PNG)
+  ![Bola_De_Fuego](Imágenes/Bola_De_Fuego.PNG)
 
 ### Flujo de juego
 Nuestro juego multijugador competitivo funcionará en partidas en las que solo pueden participar 2 jugadores, los cuales tendrán 3 vidas y verán al comienzo un menú de inicio con los botones de jugar, controles, créditos y ajustes. Tras configurar los ajustes y leer los controles, sí así lo desean, podrán comenzar a jugar.  
