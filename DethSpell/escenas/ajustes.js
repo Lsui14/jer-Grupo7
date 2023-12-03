@@ -39,6 +39,7 @@ var Ajustes = new Phaser.Class({
       this.audioon.on('pointerdown', () => {
         pulsar.play();
         this.game.musicaGlobal.musica.setVolume(0.5);
+        this.game.musicaGlobal.mute = false;
       });
 
 
@@ -54,6 +55,7 @@ var Ajustes = new Phaser.Class({
       this.audiooff.on('pointerdown', () => {
         pulsar.play();
         this.game.musicaGlobal.musica.setVolume(0);
+        this.game.musicaGlobal.mute = true;
       });
 
       this.flecha = this.add.sprite(91, 66, 'flecha').setInteractive();

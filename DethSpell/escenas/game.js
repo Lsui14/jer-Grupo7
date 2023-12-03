@@ -1,14 +1,21 @@
 var player1;
 var player2;
 var platform;
-var derecha = true;
-var derecha2 = false;
-var countBolas = false;
-var numBolas = 0;
-var countBolasMorada = false;
-var numBolasMorada = 0;
+var derecha;
+var derecha2;
+var countBolas;
+var numBolas;
+var countBolasMorada;
+var numBolasMorada;
 var bola;
 var bolas;
+var hit;
+var hitrojo;
+var move;
+var movemorado;
+var powerup;
+var vidas;
+var powerups;
 var josh;
 var joshimage;
 var variablejose= false;
@@ -31,6 +38,7 @@ var Game = new Phaser.Class({
     this.load.image('borde_arriba', 'assets/borde_arriba.png');
     this.load.image('borde_der', 'assets/borde_der.png');
     this.load.image('borde_izq', 'assets/borde_izq.png');
+    this.load.image('gato', 'assets/gato mago dimensionado.png');
     this.load.image('escenario', 'assets/escenario.jpg');
     this.load.image('suelo', 'assets/platform.png');
     this.load.image('plataformaGrande', 'assets/plataforma1.png');
@@ -61,17 +69,112 @@ var Game = new Phaser.Class({
 
     create ()
     {
+
+        vidas = 0;
+        powerups = 0;
+        numBolasMorada = 0;
+        countBolasMorada = false;
+        numBolas = 0;
+        countBolas = false;
+        hit = false;
+        hitrojo = false;
+        derecha = true;
+        derecha2 = false;
+        move = false;
+        movemorado = false;
+
+
+
         const timeline = this.add.timeline([
             {
                 at: 6000,
                 run: () => {josh.setVisible(true);
-                    joshaudio.setVolume(0.9);
+                    
                     joshaudio.play();
+                    this.game.musicaGlobal.musica.pause();
                 josh.setVelocity(100,0);         
                 }
             }
         ])
     
+        const timevida = this.add.timeline([{
+            at: 7000,
+                run: () =>{
+                    if(vidas < 2){
+                    var x;
+                    
+                    if(player1.x > player2.x){
+                        aux = (player1.x - player2.x);
+                        aux2 = aux/2;
+                        x = aux2 + player2.x;
+                    }
+
+                    else if(player2.x > player1.x){
+                        aux = (player2.x - player1.x);
+                        aux2 = aux/2;
+                        x = aux2 + player1.x;
+                    }
+
+                    
+                    powerup = corazon_up.create(x,0, 'gato');
+                    powerup.setGravityY(300);
+                    powerup.setBounce(0.3);
+                    
+                    vidas++;
+                }
+                timevida.play();
+            }
+        }])
+
+        const timebola = this.add.timeline([
+            {
+                at: 10000,
+                run: () => {
+                    if(powerups < 2){
+                    var x;
+                    
+                    if(player1.x > player2.x){
+                        aux = (player1.x - player2.x);
+                        aux2 = aux/2;
+                        x = aux2 + player2.x;
+                    }
+
+                    else if(player2.x > player1.x){
+                        aux = (player2.x - player1.x);
+                        aux2 = aux/2;
+                        x = aux2 + player1.x;
+                    }
+
+                    powerup = bola_up.create(x,0, 'bola');
+                    powerup.setGravityY(300);
+                    powerup.setBounce(0.3);
+                    powerup.setTint(0xff0000);
+                    powerups++;
+                
+                }
+                timebola.play();
+            }
+            
+            }
+        ])
+
+        const timehit = this.add.timeline([{
+            at: 3000,
+            run: () => {hit = false;
+                    player2.clearTint();}
+        }
+        ])
+
+        const timehitrojo = this.add.timeline([{
+            at: 3000,
+            run: () => {hitrojo = false;
+                    player1.clearTint();}
+        }
+        ])
+
+        timeline.play();
+        timevida.play();
+        timebola.play();
     
 
     pulsar = this.sound.add('pulsado');
@@ -80,7 +183,12 @@ var Game = new Phaser.Class({
     if (this.game.musicaGlobal.musica) {
         this.game.musicaGlobal.musica.stop();
         this.game.musicaGlobal.musica = this.sound.add('musicajuego');
+        if(this.game.musicaGlobal.mute == false){
         this.game.musicaGlobal.musica.setVolume(0.5);
+        }
+        else{
+            this.game.musicaGlobal.musica.setVolume(0);
+        }
         this.game.musicaGlobal.musica.play();
     };
 
@@ -89,13 +197,13 @@ var Game = new Phaser.Class({
     sonido3 = this.sound.add('bolafuego');
     sonido4 = this.sound.add('bolahielo');
 
-    timeline.play();
+    
     this.add.image(450, 253, 'escenario');
     platform = this.physics.add.staticGroup();
 
     borde = this.physics.add.staticGroup();
     joshaudio = this.sound.add('joshaudio');
-    joshaudio.setVolume(0.1);
+    joshaudio.setVolume(0.4);
     josh = this.physics.add.group();
     josh.create(150,200, 'josh').setScale(0.5).refreshBody();
 
@@ -114,15 +222,17 @@ var Game = new Phaser.Class({
     player2 = this.physics.add.sprite(700,350, 'magomorado');
     
 
-    player1.setBounce(0.1);
+    player1.setBounce(0);
     player1.setCollideWorldBounds(true);
-    player1.body.setGravityY(300);
+    player1.body.setGravityY(600);
     player1.vida = 3;
+    player1.tresbolas = false;
 
-    player2.setBounce(0.1);
+    player2.setBounce(0);
     player2.setCollideWorldBounds(true);
-    player2.body.setGravityY(300);
+    player2.body.setGravityY(600);
     player2.vida = 3;
+    player2.tresbolas = false;
 
     Corazon_Rojo = this.physics.add.staticGroup({
         key: 'corazon_rojo',
@@ -136,9 +246,65 @@ var Game = new Phaser.Class({
         setXY: { x: config.width - 160, y: 50, stepX:-70}
     })
 
-    //Corazon_Morado.setScale(2).refreshBody();
+   
 
-    
+    corazon_up = this.physics.add.group();
+    this.physics.add.collider(corazon_up, platform);
+    this.physics.add.overlap(player1,corazon_up, sumarvida1, null, this);
+    this.physics.add.overlap(player2,corazon_up, sumarvida2, null, this);
+
+    bola_up = this.physics.add.group();
+    this.physics.add.collider(bola_up, platform);
+    this.physics.add.overlap(player1,bola_up, sumarbola1, null, this);
+    this.physics.add.overlap(player2,bola_up, sumarbola2, null, this);
+
+    function sumarbola1(player1, bola_up){
+        bola_up.disableBody(true,true);
+        player1.tresbolas = true;
+        powerups--;
+    }
+
+    function sumarbola2(player2, bola_up){
+        bola_up.disableBody(true,true);
+        player2.tresbolas = true;
+        powerups--;
+    }
+
+    function sumarvida2(player2,corazon_up){
+        var i = 0;
+        vidas--;
+        corazon_up.disableBody(true,true);
+        if(player2.vida != Corazon_Morado.countActive(true)){
+            player2.vida++;
+        Corazon_Morado.children.iterate(function(child){
+        if(i == player2.vida -1 ){
+            child.clearTint();
+            
+        }
+        i++;
+        
+
+    })
+    }
+    }
+
+    function sumarvida1(player1, corazon_up){
+        var i = 0;
+        vidas--;
+        corazon_up.disableBody(true,true);
+        if(player1.vida != Corazon_Rojo.countActive(true)){
+            player1.vida++;
+        Corazon_Rojo.children.iterate(function(child){
+        if(i == player1.vida -1 ){
+            child.clearTint();
+            
+        }
+        i++;
+        
+
+    })
+    }
+    }
 
     this.physics.add.collider(player1, platform);
     this.physics.add.collider(player2, platform);
@@ -153,7 +319,8 @@ var Game = new Phaser.Class({
     function parar(josh,borde){
         
         joshaudio.stop();
-        josh.disableBody(true,true);  
+        josh.disableBody(true,true);
+        this.game.musicaGlobal.musica.resume();  
     }
 
     bola = this.physics.add.group();
@@ -175,17 +342,18 @@ var Game = new Phaser.Class({
 
     function hitbola (player2, bola)
     {
+        timehit.play();
         sonido2.play();
         var i = 0;
         Corazon_Morado.children.iterate(function(child){
-        if(i == player2.vida -1){
+        if(i == player2.vida -1 && !hit){
             child.setTint('#FDFEFE');
             
         }
         i++;
 
     })
-        if(player2.vida == 1){
+        if(player2.vida == 1 && !hit){
             player2.setTint(0xff0000);
             player2.vida--;
             joshaudio.stop();
@@ -193,18 +361,26 @@ var Game = new Phaser.Class({
             this.scene.start('Victoria1');          
         }
         
-        else{
+        else if(!hit){
             player2.vida--;
+            player2.setTint(0xff0000);
         }
-        
-         player2.anims.play('morado hit left');
-         bola.disableBody(true,true);
+
+        if(bola.derecha){
+            player2.anims.play('morado hit right');
+            console.log('derecha');
+        }
+
+        else{
+            player2.anims.play('morado hit left');
+            console.log('izquierda');
+        }
+        bola.disableBody(true,true);
          countBolas = false;
          numBolas--;
-
-         //vidas = Corazon_Morado.countActive(true);
-
-         //Corazon_Morado.disableBody(true,true);
+         hit = true;
+         movemorado = false;
+         tiempomorado = 0;
 
      
     }
@@ -218,17 +394,18 @@ var Game = new Phaser.Class({
 
     function hitbolaMorada (player1, bolaMorada)
     {
+        timehitrojo.play();
         sonido1.play();
         var i = 0;
         Corazon_Rojo.children.iterate(function(child){
-        if(i == player1.vida -1){
+        if(i == player1.vida -1 && !hitrojo){
             child.setTint('#FDFEFE');
             
         }
         i++;
 
     })
-        if(player1.vida == 1){
+        if(player1.vida == 1 && !hitrojo){
             player1.setTint(0xff0000);
             player1.vida--;
             joshaudio.stop();
@@ -236,14 +413,26 @@ var Game = new Phaser.Class({
             this.scene.start('Victoria2');   
         }
         
-        else{
+        else if(!hitrojo){
             player1.vida--;
+            player1.setTint(0xff0000);
+        }
+
+        if(bolaMorada.derecha){
+            player1.anims.play('rojo hit right');
+            console.log('derecha');
+        }
+        else{
+            player1.anims.play('rojo hit left');
+            console.log('izquierda');
         }
          
-         player1.anims.play('rojo hit right');
-         bolaMorada.disableBody(true,true);
-         countBolasMorada = false;
-         numBolasMorada--;
+        bolaMorada.disableBody(true,true);
+        countBolasMorada = false;
+        numBolasMorada--;
+        hitrojo = true;
+        tiempo = 0;
+        move = false;
 
      
     }
@@ -307,17 +496,17 @@ var Game = new Phaser.Class({
     })
 
     this.anims.create({
-        key: 'rojo hit right',
+        key: 'rojo hit left',
         frames: this.anims.generateFrameNumbers('magorojo', { start: 14, end: 16}),
-        framRate: 20,
-        repeat: -1
+        framRate: 5,
+        
     })
 
     this.anims.create({
-        key: 'rojo hit left',
+        key: 'rojo hit right',
         frames: this.anims.generateFrameNumbers('magorojo', { start: 17, end: 19}),
-        framRate: 20,
-        repeat: -1
+        framRate: 5,
+        
     })
     
     this.anims.create({
@@ -379,18 +568,18 @@ var Game = new Phaser.Class({
     })
 
     this.anims.create({
-        key: 'morado hit right',
+        key: 'morado hit left',
         frames: this.anims.generateFrameNumbers('magomorado', { start: 14, end: 16}),
         framRate: 5,
     })
 
     this.anims.create({
-        key: 'morado hit left',
+        key: 'morado hit right',
         frames: this.anims.generateFrameNumbers('magomorado', { start: 17, end: 19}),
         framRate: 5,
     })
 
-    //cursors = this.input.keyboard.createCursorKeys();
+    
     const keyCodes= Phaser.Input.Keyboard.KeyCodes;
     this.teclaA= this.input.keyboard.addKey(keyCodes.A);
     this.teclaD= this.input.keyboard.addKey(keyCodes.D);
@@ -433,11 +622,30 @@ var Game = new Phaser.Class({
     
      if (this.teclaE.isDown && derecha){
         player1.anims.play('rojo atack right', true);
-        sonido3.play();
+        move = true;
 
-        if(countBolas == false && numBolas < 2){
+        if(countBolas == false && player1.tresbolas && !hitrojo){
+            sonido3.play();
             bolas = bola.create (player1.x + 40, player1.y - 30, 'bola');
-            //bolas.setGravityY(200);
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
+            numBolas++;
+            bolas = bola.create (player1.x + 40, player1.y - 10, 'bola');
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
+            numBolas++;
+            bolas = bola.create (player1.x + 40, player1.y + 10, 'bola');
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true
+            numBolas++;
+            player1.tresbolas = false;
+            
+        }
+
+        if(countBolas == false && numBolas < 2  && !hitrojo){
+            sonido3.play();
+            bolas = bola.create (player1.x + 40, player1.y - 30, 'bola');
+            
             bolas.setVelocity(400, 0);
             bolas.derecha = true;
             countBolas = true;
@@ -451,12 +659,30 @@ var Game = new Phaser.Class({
 
     else if (this.teclaE.isDown && !derecha){
         player1.anims.play('rojo atack left', true);
+        move = true;
         
+        if(countBolas == false && player1.tresbolas && !hitrojo){
+            sonido3.play();
+            bolas = bola.create (player1.x + 40, player1.y - 30, 'bola_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolas++;
+            bolas = bola.create (player1.x + 40, player1.y - 10, 'bola_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolas++;
+            bolas = bola.create (player1.x + 40, player1.y + 10, 'bola_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolas++;
+            player1.tresbolas = false;
+           
+        }
 
-        if(countBolas == false && numBolas < 2){
+        if(countBolas == false && numBolas < 2  && !hitrojo){
             sonido3.play();
             var bolas = bola.create (player1.x - 40, player1.y - 30, 'bola_I');
-            //bolas.setGravityY(200);
+            
             bolas.setVelocity(-400, 0);
             bolas.derecha = false;
             countBolas = true;
@@ -467,15 +693,18 @@ var Game = new Phaser.Class({
 
     else if(this.teclaW.isDown && player1.body.touching.down && derecha){
         player1.setVelocityY(-500);
+        move = true;
         player1.anims.play('rojo jump right', true);
     }
 
     else if(this.teclaW.isDown && player1.body.touching.down && !derecha){
         player1.setVelocityY(-500);
+        move = true;
         player1.anims.play('rojo jump left', true);
     }
     else if(this.teclaA.isDown){
         player1.setVelocityX(-260);
+        move = true;
 
         if(player1.body.touching.down){
         player1.anims.play('rojo left', true);
@@ -488,6 +717,7 @@ var Game = new Phaser.Class({
 
     else if(this.teclaD.isDown){
         player1.setVelocityX(260);
+        move = true;
 
         if(player1.body.touching.down){
         player1.anims.play('rojo right', true);
@@ -498,7 +728,7 @@ var Game = new Phaser.Class({
         derecha = true;
     }
 
-    else if(derecha == true){
+    else if(derecha == true && (!hitrojo || move)){
         player1.setVelocityX(0);
 
         if(player1.body.touching.down){
@@ -508,7 +738,7 @@ var Game = new Phaser.Class({
     }
     
 
-    else{
+    else if(!hitrojo || move){
         player1.setVelocityX(0);
 
         if(player1.body.touching.down){
@@ -520,11 +750,30 @@ var Game = new Phaser.Class({
 
     if (this.teclaO.isDown && derecha2){
         player2.anims.play('morado atack right', true);
+        movemorado = true;
         
-        if(countBolasMorada == false && numBolasMorada < 2){
+
+        if(countBolasMorada == false && player2.tresbolas && !hit){
+            sonido4.play();
+            bolas = bolaMorada.create (player2.x + 40, player2.y - 30, 'bola2');
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
+            numBolasMorada++;
+            bolas = bolaMorada.create (player2.x + 40, player2.y - 10, 'bola2');
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
+            numBolasMorada++;
+            bolas = bolaMorada.create (player2.x + 40, player2.y + 10, 'bola2');
+            bolas.setVelocity(400, 0);
+            bolas.derecha = true;
+            numBolasMorada++;
+            player2.tresbolas = false;
+            
+        }
+        if(countBolasMorada == false && numBolasMorada < 2 && !hit){
             sonido4.play();
             var bolas = bolaMorada.create (player2.x + 40, player2.y - 30, 'bola2');
-            //bolas.setGravityY(200);
+            
             bolas.setVelocity(400, 0);
             bolas.derecha = true;
             countBolasMorada = true;
@@ -534,11 +783,31 @@ var Game = new Phaser.Class({
     }
     else if (this.teclaO.isDown && !derecha2){
         player2.anims.play('morado atack left', true);
+
+        movemorado = true;
+
+        if(countBolasMorada == false && player2.tresbolas && !hit){
+            sonido4.play();
+            bolas = bolaMorada.create (player2.x + 40, player2.y - 30, 'bola2_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolasMorada++;
+            bolas = bolaMorada.create (player2.x + 40, player2.y - 10, 'bola2_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolasMorada++;
+            bolas = bolaMorada.create (player2.x + 40, player2.y + 10, 'bola2_I');
+            bolas.setVelocity(-400, 0);
+            bolas.derecha = false;
+            numBolasMorada++;
+            player2.tresbolas = false;
+            
+        }
         
-        if(countBolasMorada == false && numBolasMorada < 2){
+        if(countBolasMorada == false && numBolasMorada < 2 && !hit){
             sonido4.play();
             var bolas = bolaMorada.create (player2.x - 40, player2.y - 30, 'bola2_I');
-            //bolas.setGravityY(200);
+            
             bolas.setVelocity(-400, 0);
             bolas.derecha = false;
             countBolasMorada = true;
@@ -548,16 +817,19 @@ var Game = new Phaser.Class({
     }
     else if(this.teclaI.isDown && player2.body.touching.down && derecha2){
         player2.setVelocityY(-500);
+        movemorado = true;
         player2.anims.play('morado jump right', true);
     }
 
     else if(this.teclaI.isDown && player2.body.touching.down && !derecha2){
         player2.setVelocityY(-500);
+        movemorado = true;
         player2.anims.play('morado jump left', true);
     }
 
     else if(this.teclaJ.isDown){
         player2.setVelocityX(-260);
+        movemorado = true;
 
         if(player2.body.touching.down){
         player2.anims.play('morado left', true);
@@ -570,6 +842,7 @@ var Game = new Phaser.Class({
 
     else if(this.teclaL.isDown){
         player2.setVelocityX(260);
+        movemorado = true;
 
         if(player2.body.touching.down){
         player2.anims.play('morado right', true);
@@ -583,7 +856,7 @@ var Game = new Phaser.Class({
         
     }
 
-    else if(derecha2 == true){
+    else if(derecha2 == true && (!hit || movemorado)){
         player2.setVelocityX(0);
 
         if(player2.body.touching.down){
@@ -593,7 +866,7 @@ var Game = new Phaser.Class({
         countBolasMorada = false;
     }
 
-    else{
+    else if(!hit || movemorado){
         player2.setVelocityX(0);
 
         if(player2.body.touching.down){
