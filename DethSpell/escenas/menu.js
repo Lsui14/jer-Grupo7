@@ -41,7 +41,12 @@ var Menu = new Phaser.Class({
     
     if (!this.game.musicaGlobal.musica) {
       this.game.musicaGlobal.musica = this.sound.add('musicamenu');
-      this.game.musicaGlobal.musica.setVolume(0.5);
+      if(this.game.musicaGlobal.mute == false){
+        this.game.musicaGlobal.musica.setVolume(0.5);
+        }
+        else{
+            this.game.musicaGlobal.musica.setVolume(0);
+        }
       this.game.musicaGlobal.musica.play();
     };
 
@@ -62,7 +67,7 @@ var Menu = new Phaser.Class({
 
       this.scene.transition({
         target: 'Game', 
-        duration: 6000, 
+        duration: 3500, 
        })
 
     });
@@ -113,12 +118,6 @@ var Menu = new Phaser.Class({
     },
 
     update(){
-      /*
-      if (!this.game.musicaGlobal.musica) {
-        this.game.musicaGlobal.musica = this.sound.add('musicamenu');
-        this.game.musicaGlobal.musica.setVolume(0.5);
-        this.game.musicaGlobal.musica.play();
-      }; 
-      */
+      
     }
 });

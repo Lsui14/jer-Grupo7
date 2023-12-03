@@ -10,7 +10,8 @@ var Creditos = new Phaser.Class({
     
     preload(){
         this.load.image('Icreditos', 'interfaces/interfaz_creditos.jpg');
-
+      
+        this.load.audio('profes', 'musica/profes.mp3');
         this.load.audio('pulsado','musica/Pulsado.mp3');
         this.load.audio('boton','musica/Hover.mp3');
 
@@ -21,6 +22,8 @@ var Creditos = new Phaser.Class({
 
       pulsar = this.sound.add('pulsado');
       boton = this.sound.add('boton');
+      profes = this.sound.add('profes');
+      profes.setVolume(2);
        
       this.add.image(450,253,'Icreditos');
 
@@ -35,6 +38,7 @@ var Creditos = new Phaser.Class({
        });
        this.flecha.on('pointerdown', () => {
         pulsar.play();
+        profes.play();
          this.scene.start('Menu');
        });
         
