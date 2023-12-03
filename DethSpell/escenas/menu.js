@@ -20,9 +20,18 @@ var Menu = new Phaser.Class({
         this.load.spritesheet('jugar', 'interfaces/boton_jugar.png',  { frameWidth: 282, frameHeight: 105 });
         this.load.spritesheet('controles', 'interfaces/boton_controles.png',  { frameWidth: 282, frameHeight: 105 });
 
+        this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
+        this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
     },
     
     create() {
+
+      this.anims.create({
+        key: 'Acargar',
+        frames: this.anims.generateFrameNumbers('cargar', { start: 0, end: 11}),
+        frameRate: 10,
+        repeat: -1
+    });
 
     this.add.image(450,253,'interfazMenu');
 
@@ -45,7 +54,15 @@ var Menu = new Phaser.Class({
     });
     this.jugar.on('pointerdown', () => {
       pulsar.play();
-      this.scene.start('Game');
+      this.add.image(450,253,'fondo');
+      carga1 = this.add.sprite(450,253,'cargar');
+      carga1.anims.play('Acargar');
+
+      this.scene.transition({
+        target: 'Game', 
+        duration: 6000, 
+       })
+
     });
 
 

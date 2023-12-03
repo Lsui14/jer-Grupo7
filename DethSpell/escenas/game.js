@@ -187,6 +187,7 @@ var Game = new Phaser.Class({
         if(player2.vida == 1){
             player2.setTint(0xff0000);
             player2.vida--;
+            joshaudio.stop();
             this.scene.start('Victoria1');          
         }
         
@@ -228,6 +229,7 @@ var Game = new Phaser.Class({
         if(player1.vida == 1){
             player1.setTint(0xff0000);
             player1.vida--;
+            joshaudio.stop();
             this.scene.start('Victoria2');   
         }
         
