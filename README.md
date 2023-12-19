@@ -213,26 +213,33 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 
 ## Guía de instalación
 Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
+
 Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot. 
 
 ![Guia](Imágenes/guía_instalación/1.PNG)
+
 *Entramos en la dirección donde se encuentra ServidorApplication.java*
 
 ![Guia](Imágenes/guía_instalación/2.PNG)
+
 *Click derecho sobre el fichero > Run As > Spring Boot App*
 
 Ambos clientes, incluyendo al que actúe como servidor, han de estar conectados a la misma subred. Para ello nos dirigiremos a la consola de comandos de Windows y escribiremos ipconfig, nos fijamos en aquel que ponga dirección IPv4 y lo copiamos en el navegador seguido de : y el número de puerto asignado (por defecto :8080).
 
 ![Guia](Imágenes/guía_instalación/3.PNG)
+
 *Escribimos cmd en la barra de búsqueda de Windows y ejecutamos el Símbolo del Sistema*
 
 ![Guia](Imágenes/guía_instalación/4.PNG)
+
 *Escribimos ipconfig*
 
 ![Guia](Imágenes/guía_instalación/5.PNG)
+
 *Copiamos la dirección que aparezca en IPv4*
 
 ![Guia](Imágenes/guía_instalación/6.PNG)
+
 *Pegamos la ip en el navegador seguido de :8080 (el número de puerto)*
 
 ## Enlaces a elementos usados 
