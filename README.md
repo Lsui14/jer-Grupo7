@@ -155,8 +155,13 @@ Para la pantalla de juego, nos hemos decantado por una canción medieval de acci
 En cuanto a los efectos de sonido, hemos escogido sonidos para todas las acciones posibles del juego, desde efectos para las bolas de fuego y hielo hasta efectos para cuando uno de los personajes es golpeado.
 Todos los efectos de sonido y música usados se encuentran en una carpeta accesible.
 ## Interfaces
-A continuación, mostraremos un boceto de las diferentes interfaces que conforman nuestro juego.  
-En primer lugar, tenemos la interfaz inicial con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
+A continuación, mostraremos las diferentes interfaces que conforman nuestro juego.  
+En primer lugar, tenemos una pantalla que se ha implementado en la Fase 3, que permite al usuario: registrarse e iniciar una sesión con una cuenta propia (Con un Id y su respectiva contraseña).
+
+//meter imagen
+*Interfaz LogIn*
+
+La interfaz inicial es con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
 
 ![InterfazInicial](Imágenes/Interfaces_nuevas/Menu.PNG)
 *Interfaz Inicial*
@@ -165,7 +170,7 @@ La interfaz de controles sirve de ayuda a los usuarios para que sepan cómo pued
 ![InterfazControles](Imágenes/Interfaces_nuevas/Controles.PNG)
 *Interfaz de Controles*
 
-La interfaz de ajuste sirve para dar la opción al jugador de jugar con música de fondo o no.  
+La interfaz de ajuste sirve para dar la opción al jugador de jugar con música de fondo o no. Ahora con la nueva Fase 3 de API REST, se ha añadido una nueva funcionalidad en ajustes, que permite al usuario: modificar su contraseña o borrar su cuenta.  
 ![InterfazAjustes](Imágenes/Interfaces_nuevas/Ajustes.PNG)
 *Interfaz de Ajustes*
 
@@ -213,13 +218,17 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 
 ## Diagrama de clases
 Se ha creado un diagrama de las clases en la que no se ha incluido ni atributos ni métodos. Se muestran las relaciones entre las clases (asociación agregación/composición o herencia) y se diferenciarán con un código de color. 
-![DiagramaClases](Imágenes/Diagramas UML/Diagrama de clases.png)
 
+![DiagramaClases](Imágenes/Diagramas_UML/Diagrama_de_clases.png)
+
+*Diagrama de clases*
 ## Implementación con API REST
 Se ha implementado una API REST utilizada para labores de red como el inicio de sesión a través de la comunicación con el servidor. 
 
 A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado para este propósito:
-![DiagramaAPIREST](Imágenes/Diagramas UML/Diagrama API REST.png)
+![DiagramaAPIREST](Imágenes/Diagramas_UML/Diagrama_API_REST.png)
+
+*UML de API REST*
 
 ## Guía de instalación
 Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
