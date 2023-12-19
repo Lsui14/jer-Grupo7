@@ -211,6 +211,16 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 
 *Flujo Actualizado*
 
+## Diagrama de clases
+Se ha creado un diagrama de las clases en la que no se ha incluido ni atributos ni métodos. Se muestran las relaciones entre las clases (asociación agregación/composición o herencia) y se diferenciarán con un código de color. 
+
+
+## Implementación con API REST
+Se ha implementado una API REST utilizada para labores de red como el inicio de sesión a través de la comunicación con el servidor. 
+
+A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado para este propósito:
+
+
 ## Guía de instalación
 Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
 
