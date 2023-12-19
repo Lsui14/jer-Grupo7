@@ -35,10 +35,11 @@
                 debug: false
             }
         },
-        scene: [ LogIn, Menu, Game, Ajustes,AjustesP, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir]
+        scene: [  LogIn, Menu, Game,Ajustes, AjustesP, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir]
     };
     
     var game = new Phaser.Game(config);
+    game.usuario = null;
     game.musicaGlobal = {
         musica: null,
         mute: false
