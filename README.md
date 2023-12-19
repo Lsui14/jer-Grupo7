@@ -231,9 +231,7 @@ A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado
 *UML de API REST*
 
 ## Guía de instalación
-Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
-
-Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot. 
+Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot/Jave Application. 
 
 ![Guia](Imágenes/guía_instalación/1.PNG)
 
@@ -241,7 +239,7 @@ Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorA
 
 ![Guia](Imágenes/guía_instalación/2.PNG)
 
-*Click derecho sobre el fichero > Run As > Spring Boot App*
+*Click derecho sobre el fichero > Run As > Spring Boot App/Java Application*
 
 Ambos clientes, incluyendo al que actúe como servidor, han de estar conectados a la misma subred. Para ello nos dirigiremos a la consola de comandos de Windows y escribiremos ipconfig, nos fijamos en aquel que ponga dirección IPv4 y lo copiamos en el navegador seguido de : y el número de puerto asignado (por defecto :8080).
 
