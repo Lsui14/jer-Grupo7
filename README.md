@@ -200,7 +200,16 @@ Si decides pulsar el botón de salir te dirige a una nueva pantalla en la cual s
 A continuación se puede observar en el flujo de interfaces lo comentado anteriormente de forma más rápida y visual. 
 ![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
 
-*Fluejo de Interfaces*
+*Flujo de Interfaces*
+
+## Nuevo flujograma e interfaces
+Tras la fase 3 de nuestros proyecto, en la cual debemos usar REST para incluir a nuestro juego su back-end, se ha creado una interfaz nueva la cual permite a los jugadores registrarse definiendo una contraseña propia. Tras esto, el jugador puede inciar el juego, lo que le llevará a la pantalla principal.
+Otra modificación que se ha hecho ha sido la pantalla de ajustes, la cual cuenta con una nueva funcionalidad que permite al usuario cambiar su contraseña o borrar su registro (lo que le lleverá nuevamente a la pantalla de registro).
+
+Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriormente.
+![FlujoNuevoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo_Actualizado.png)
+
+*Flujo Actualizado*
 
 ## Enlaces a elementos usados 
 
