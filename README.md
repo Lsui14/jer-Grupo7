@@ -211,6 +211,33 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 
 *Flujo Actualizado*
 
+## Guía de instalación
+Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
+Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot. 
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+Ambos clientes, incluyendo al que actúe como servidor, han de estar conectados a la misma subred. Para ello nos dirigiremos a la consola de comandos de Windows y escribiremos ipconfig, nos fijamos en aquel que ponga dirección IPv4 y lo copiamos en el navegador seguido de : y el número de puerto asignado (por defecto :8080).
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+
+![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
+
+*Flujo de Interfaces*
+
 ## Enlaces a elementos usados 
 
 Link generador de imágenes de Microsoft Bing: https://www.bing.com/create?toWww=1&redig=40851FEC9174485487F9A69C3F3BDE5C 
