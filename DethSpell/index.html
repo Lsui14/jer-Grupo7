@@ -3,6 +3,7 @@
 <head> 
 
     <script src="phaser.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <link type="text/css" rel="stylesheet" href="hoja_de_estilos.css"/>
     
 </head>
@@ -18,6 +19,8 @@
     <script src="escenas/victoria1.js"></script>
     <script src="escenas/victoria2.js"></script>
     <script src="escenas/preguntaSalir.js"></script>
+    <script src="escenas/login.js"></script>
+    
 
     <script>
 
@@ -32,7 +35,7 @@
                 debug: false
             }
         },
-        scene: [ Menu, Game, Ajustes,AjustesP, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir]
+        scene: [ LogIn, Menu, Game, Ajustes,AjustesP, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir]
     };
     
     var game = new Phaser.Game(config);
