@@ -215,31 +215,26 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Abriremos... CONSULTAR
 Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot. 
 
-![Guia](Imágenes/guía_instalación/1.png)
+![Guia](Imágenes/guía_instalación/1.PNG)
 
-*Flujo de Interfaces*
 
-![Guia](Imágenes/guía_instalación/2.png)
+![Guia](Imágenes/guía_instalación/2.PNG)
 
 *Flujo de Interfaces*
 
 Ambos clientes, incluyendo al que actúe como servidor, han de estar conectados a la misma subred. Para ello nos dirigiremos a la consola de comandos de Windows y escribiremos ipconfig, nos fijamos en aquel que ponga dirección IPv4 y lo copiamos en el navegador seguido de : y el número de puerto asignado (por defecto :8080).
 
-![Guia](Imágenes/guía_instalación/3.png)
+![Guia](Imágenes/guía_instalación/3.PNG)
 
-*Flujo de Interfaces*
 
-![Guia](Imágenes/guía_instalación/4.png)
+![Guia](Imágenes/guía_instalación/4.PNG)
 
-*Flujo de Interfaces*
 
-![Guia](Imágenes/guía_instalación/5.png)
+![Guia](Imágenes/guía_instalación/5.PNG)
 
-*Flujo de Interfaces*
 
-![Guia](Imágenes/guía_instalación/6.png)
+![Guia](Imágenes/guía_instalación/6.PNG)
 
-*Flujo de Interfaces*
 
 ## Enlaces a elementos usados 
 
