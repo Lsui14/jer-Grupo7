@@ -158,7 +158,7 @@ Todos los efectos de sonido y música usados se encuentran en una carpeta accesi
 A continuación, mostraremos las diferentes interfaces que conforman nuestro juego.  
 En primer lugar, tenemos una pantalla que se ha implementado en la Fase 3, que permite al usuario: registrarse e iniciar una sesión con una cuenta propia (Con un Id y su respectiva contraseña).
 
-//meter imagen
+![InterfazLogIn](Imágenes/Interfaces_nuevas/Interfaz_Login.jpeg)
 *Interfaz LogIn*
 
 La interfaz inicial es con la que se podrá acceder a las siguientes cuatro interfaces: controles, ajustes, créditos y partida del juego.  
@@ -171,7 +171,7 @@ La interfaz de controles sirve de ayuda a los usuarios para que sepan cómo pued
 *Interfaz de Controles*
 
 La interfaz de ajuste sirve para dar la opción al jugador de jugar con música de fondo o no. Ahora con la nueva Fase 3 de API REST, se ha añadido una nueva funcionalidad en ajustes, que permite al usuario: modificar su contraseña o borrar su cuenta.  
-![InterfazAjustes](Imágenes/Interfaces_nuevas/Ajustes.PNG)
+![InterfazAjustes](Imágenes/Interfaces_nuevas/Ajustes_Actualizada.jpeg)
 *Interfaz de Ajustes*
 
 La interfaz de los créditos, tal y como su nombre indica, sirve para dar a conocer a los jugadores los integrantes que forman el equipo de desarrollo. 
