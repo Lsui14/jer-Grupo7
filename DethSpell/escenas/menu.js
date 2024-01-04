@@ -24,8 +24,8 @@ var Menu = new Phaser.Class({
         this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
 
         this.load.image('gatotutorial', 'interfaces/gatotutorial_portada.png');
-        this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
-        this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
+        this.load.spritesheet('btutorial', 'interfaces/boton_tutorial.png',  { frameWidth: 282, frameHeight: 105 });
+    
     },
     
     create() {
