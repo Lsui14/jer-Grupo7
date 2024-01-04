@@ -22,6 +22,10 @@ var Menu = new Phaser.Class({
 
         this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
         this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
+
+        this.load.image('gatotutorial', 'interfaces/gatotutorial_portada.png');
+        this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
+        this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
     },
     
     create() {
@@ -113,6 +117,28 @@ var Menu = new Phaser.Class({
         pulsar.play();
         this.scene.start('Ajustes');
       });
+
+  this.add.image(787,414,'gatotutorial').setScale(0.65);
+  this.btutorial = this.add.sprite(797, 293, 'btutorial').setInteractive();
+    this.btutorial.on('pointerover', () => {
+    boton.play();
+    this.btutorial.setFrame(1);
+    });
+    this.btutorial.on('pointerout', () => {
+      this.btutorial.setFrame(0);
+    });
+    this.btutorial.on('pointerdown', () => {
+      pulsar.play();
+      this.add.image(450,253,'fondo');
+      carga1 = this.add.sprite(450,253,'cargar');
+      carga1.anims.play('Acargar');
+
+      this.scene.transition({
+        target: 'Tutorial', 
+        duration: 6000, 
+       })
+      
+    });
 
         
     },
