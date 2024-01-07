@@ -257,6 +257,8 @@ Al empezar la partida los jugadores envían respectivamente sus posiciones al se
 
 Por otro lado, cuando un jugador le da a ajustes se envía un mensaje al otro jugador para que se pause el juego a este mismo. Si el jugador en ajustes decide volver al juego envía otro mensaje para que el otro jugador reanude también el juego.​ En cambio, si el jugador decide salir de la partida o refrescar el navegador envía un mensaje para que el otro jugador cierre la conexión y vuelva al menú.​​
 
+El juego en línea tiene un número limitado de jugadores (máximo 2), por lo que si un tercer jugador intenta acceder, se le devolverá al menú principal.
+
 ![DiagramaWebsocket](Imágenes/Diagramas_UML/Diagrama_WebSocket.png)
 
 *UML de Websocket*
