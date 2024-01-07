@@ -230,6 +230,13 @@ A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado
 
 *UML de API REST*
 
+## Implementación con Websockets
+Se ha implementado comunicación por websockets para hacer que el juego sea multijugador online. Para ello, se ha creado una conexión entre los clientes y el servidor. Los clientes mandan el estado actual del jugador que corresponda al servidor, y el servidor actúa a modo de difusor enviando dicho estado al resto de jugadores para que vean estos cambios reflejados.
+
+![DiagramaWebsocket](Imágenes/Diagramas_UML/Diagrama_Websocket.png)
+
+*UML de Websocket*
+
 ## Guía de instalación
 Para comenzar debemos tener instalados la herramienta para Eclipse, Spring Tool Suite 4 en la máquina que actúe como servidor. Debemos entrar en src/main/java/com.example.demo y ejecutar el fichero ServidorApplication.java como aplicación de SpringBoot/Jave Application. 
 
