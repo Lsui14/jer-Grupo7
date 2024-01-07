@@ -233,7 +233,7 @@ A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado
 ## Implementación con Websockets
 Se ha implementado comunicación por websockets para hacer que el juego sea multijugador online. Para ello, se ha creado una conexión entre los clientes y el servidor. Los clientes mandan el estado actual del jugador que corresponda al servidor, y el servidor actúa a modo de difusor enviando dicho estado al resto de jugadores para que vean estos cambios reflejados.
 
-![DiagramaWebsocket](Imágenes/Diagramas_UML/Diagrama_Websocket.png)
+![DiagramaWebsocket](Imágenes/Diagramas_UML/Diagrama_WebSocket.png)
 
 *UML de Websocket*
 
