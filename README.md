@@ -247,8 +247,15 @@ A continuación se presenta el sencillo pero eficaz diagrama de clases utilizado
 
 *UML de API REST*
 
-## Implementación con Websockets
+## Implementación con Websockets-
 Se ha implementado comunicación por websockets para hacer que el juego sea multijugador online. Para ello, se ha creado una conexión entre los clientes y el servidor. Los clientes mandan el estado actual del jugador que corresponda al servidor, y el servidor actúa a modo de difusor enviando dicho estado al resto de jugadores para que vean estos cambios reflejados.
+
+Los jugadores no podrán iniciar la partida hasta que encuentren otra persona con la que puedan jugar en línea. Cuando carga el jugador 1, envía un mensaje al servidor para asignarle un ID y otro mensaje al resto de jugadores, indicando que se ha conectado y
+su nombre de usuario. Cuando al jugador 2 se le asigna su ID, este recibe el mensaje y envía otro al jugador 1, confirmando la conexión, escribiendo sus respectivos nombres y empezando la partida.​
+
+Al empezar la partida los jugadores envían respectivamente sus posiciones al servidor y mensajes para indicar que animación hacer al moverse (moverse izquierda, derecha, salto y ataques). Además, también se envía la ubicación de los power ups (Gato y Bola Roja). En cuanto a los ataques, cuando un jugador ataca envía un mensaje al otro jugador para indicar que ha atacado y que se cree una bola de fuego con la velocidad, dirección y la posición que se le ha enviado en dicho mensaje.​
+
+Por otro lado, cuando un jugador le da a ajustes se envía un mensaje al otro jugador para que se pause el juego a este mismo. Si el jugador en ajustes decide volver al juego envía otro mensaje para que el otro jugador reanude también el juego.​ En cambio, si el jugador decide salir de la partida o refrescar el navegador envía un mensaje para que el otro jugador cierre la conexión y vuelva al menú.​​
 
 ![DiagramaWebsocket](Imágenes/Diagramas_UML/Diagrama_WebSocket.png)
 
