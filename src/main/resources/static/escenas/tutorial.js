@@ -16,19 +16,23 @@ var movemorado;
 var powerup;
 var vidas;
 var powerups;
-var josh;
-var joshimage;
-var variablejose= false;
- connection = null; 
+var gatoj1;
+var gatoj2;
+var tutoj1;
+var tutoj2;
+var j1actual;
+var j2actual;
+var indiceTuto = -1;
 
-var Game = new Phaser.Class({
+
+var Tutorial = new Phaser.Class({
 
     Extends: Phaser.Scene,
 
     initialize:
 
-        function Game() {
-            Phaser.Scene.call(this, { key: 'Game' });
+        function Tutorial() {
+            Phaser.Scene.call(this, { key: 'Tutorial' });
         },
 
 
@@ -39,7 +43,7 @@ var Game = new Phaser.Class({
     this.load.image('borde_der', 'assets/borde_der.png');
     this.load.image('borde_izq', 'assets/borde_izq.png');
     this.load.image('gato', 'assets/gato mago dimensionado.png');
-    this.load.image('escenario', 'assets/escenario.jpg');
+    this.load.image('escenario', 'assets/escenario.jpg');//bo
     this.load.image('suelo', 'assets/platform.png');
     this.load.image('plataformaGrande', 'assets/plataforma1.png');
     this.load.image('plataformaPequena', 'assets/plataforma_p.png');
@@ -52,8 +56,6 @@ var Game = new Phaser.Class({
     this.load.spritesheet('magorojo', 'assets/mago1.png', { frameWidth: 98, frameHeight: 94 });
     this.load.spritesheet('magomorado', 'assets/mago2.png', { frameWidth: 98, frameHeight: 94 });
     
-    this.load.image('josh', 'assets/image.png')
-
     this.load.audio('musicajuego','musica/MusicaPelea.mp3');
     this.load.audio('golpehielo', 'musica/GolpeadoH.mp3');
     this.load.audio('golpefuego','musica/Golpeado.mp3');
@@ -61,15 +63,34 @@ var Game = new Phaser.Class({
     this.load.audio('bolahielo','musica/BolaHielo.mp3');
     this.load.audio('pulsado','musica/Pulsado.mp3');
     this.load.audio('boton','musica/Hover.mp3');
-    this.load.audio('joshaudio', 'musica/Whistle_8bit.mp3');
-    
-    this.load.spritesheet('Rajustes', 'interfaces/ajustes.png', { frameWidth: 92, frameHeight: 89 });
 
+   
+    this.load.audio('musicatuto','musica/musica_tutorial.mp3');
+    this.load.image('fondo_tutorial', 'assets/fondo_tutorial.png');
+    this.load.image('gatoj1', 'interfaces/gatoj1.png');
+    this.load.image('gatoj2', 'interfaces/gatoj2.png');
+    this.load.image('tutoj1_pt0', 'interfaces/bienvenida_j1.png');
+    this.load.image('tutoj2_pt0', 'interfaces/bienvenida_j2.png');
+    this.load.image('tutoj1_pt1', 'interfaces/tutonum1_j1.png');
+    this.load.image('tutoj2_pt1', 'interfaces/tutonum1_j2.png');
+    this.load.image('tutoj1_pt2', 'interfaces/tutoVidas_j1.png');
+    this.load.image('tutoj2_pt2', 'interfaces/tutoVidas_j2.png');
+    this.load.image('tutoj1_pt3', 'interfaces/tutonum2_j1.png');
+    this.load.image('tutoj2_pt3', 'interfaces/tutonum2_j2.png');
+    this.load.image('tutoj1_pt4', 'interfaces/tutonum3_j1.png');
+    this.load.image('tutoj2_pt4', 'interfaces/tutonum3_j2.png');
+    this.load.image('tutoj1_pt5', 'interfaces/tutoPowerups_j1.png');
+    this.load.image('tutoj2_pt5', 'interfaces/tutoPowerups_j2.png');
+    this.load.image('tutoj1_pt6', 'interfaces/tutoPowerups2_j1.png');
+    this.load.image('tutoj2_pt6', 'interfaces/tutoPowerups2_j2.png');
+    this.load.spritesheet('siguiente', 'interfaces/boton_siguiente.png',  { frameWidth: 282, frameHeight: 105 });
+    this.load.spritesheet('salir', 'interfaces/boton_salir.png',  { frameWidth: 282, frameHeight: 105 });
+   
     },
 
     create ()
     {
-
+		this.scene.launch ('Esperar');
         vidas = 0;
         powerups = 0;
         numBolasMorada = 0;
@@ -83,16 +104,10 @@ var Game = new Phaser.Class({
         move = false;
         movemorado = false;
 
-
-
         const timeline = this.add.timeline([
             {
-                at: 6000,
-                run: () => {josh.setVisible(true);
-                    
-                    joshaudio.play();
-                    this.game.musicaGlobal.musica.pause();
-                josh.setVelocity(100,0);         
+                
+                run: () => {         
                 }
             }
         ])
@@ -182,12 +197,12 @@ var Game = new Phaser.Class({
 
     if (this.game.musicaGlobal.musica) {
         this.game.musicaGlobal.musica.stop();
-        this.game.musicaGlobal.musica = this.sound.add('musicajuego');
+        this.game.musicaGlobal.musica = this.sound.add('musicatuto');
         if(this.game.musicaGlobal.mute == false){
-        this.game.musicaGlobal.musica.setVolume(0.5);
+        this.game.musicaGlobal.musica.setVolume(0.45);
         }
         else{
-            this.game.musicaGlobal.musica.setVolume(0);
+            this.game.musicaGlobal.musica.setVolume(0.45);
         }
         this.game.musicaGlobal.musica.play();
     };
@@ -198,16 +213,11 @@ var Game = new Phaser.Class({
     sonido4 = this.sound.add('bolahielo');
 
     
-    this.add.image(450, 253, 'escenario');
+    this.add.image(450, 253, 'fondo_tutorial');
     platform = this.physics.add.staticGroup();
 
     borde = this.physics.add.staticGroup();
-    joshaudio = this.sound.add('joshaudio');
-    joshaudio.setVolume(0.4);
-    josh = this.physics.add.group();
-    josh.create(150,200, 'josh').setScale(0.5).refreshBody();
-
-
+  
     platform.create(450, 480, 'suelo');
     platform.create(450,350,'plataformaPequena');
     platform.create(225,190,'plataformaGrande');
@@ -217,11 +227,19 @@ var Game = new Phaser.Class({
     borde.create(config.width/2,5, 'borde_arriba');
     borde.create(config.width - 5,config.height/2, 'borde_der');
     borde.create(5,config.height/2, 'borde_izq');
+
+    tutoj1 =['tutoj1_pt1','tutoj1_pt2','tutoj1_pt3','tutoj1_pt4','tutoj1_pt5','tutoj1_pt6'];
+    tutoj2=['tutoj2_pt1','tutoj2_pt2','tutoj2_pt3', 'tutoj2_pt4','tutoj2_pt5','tutoj2_pt6'];
+
+    j1actual = this.add.image(115,350, 'tutoj1_pt0').setScale(0.8);
+    j2actual = this.add.image(758,350, 'tutoj2_pt0').setScale(0.8);
+
+    gatoj1 =this.add.image(85,420, 'gatoj1').setScale(0.8);
+    gatoj2 =this.add.image(815,420, 'gatoj2').setScale(0.8);
     
     player1 = this.physics.add.sprite(200,350, 'magorojo');
     player2 = this.physics.add.sprite(700,350, 'magomorado');
     
-
     player1.setBounce(0);
     player1.setCollideWorldBounds(true);
     player1.body.setGravityY(600);
@@ -305,23 +323,56 @@ var Game = new Phaser.Class({
     })
     }
     }
+   
+    function cambiarImagen() {
+         
+          indiceTuto = (indiceTuto + 1) % tutoj1.length;
+          
+          j1actual.setTexture(tutoj1[indiceTuto]);
+          j2actual.setTexture(tutoj2[indiceTuto]);
+
+          if (indiceTuto === tutoj1.length) {
+              indiceTuto = -1;
+          }
+    }
+
+      this.siguiente = this.add.sprite(460, 80, 'siguiente').setScale(0.75).setInteractive();
+
+        this.siguiente.on('pointerover', () => {
+          boton.play();
+          this.siguiente.setFrame(1);
+        });
+        this.siguiente.on('pointerout', () => {
+          this.siguiente.setFrame(0);
+        });
+        this.siguiente.on('pointerdown', () => {
+          pulsar.play();
+          cambiarImagen();
+        });
+
+      this.salir = this.add.sprite(460, 36, 'salir').setScale(0.75).setInteractive();
+
+      this.salir.on('pointerover', () => {
+        boton.play();
+        this.salir.setFrame(1);
+      });
+      this.salir.on('pointerout', () => {
+        this.salir.setFrame(0);
+      });
+      this.salir.on('pointerdown', () => {
+        pulsar.play();
+        
+        this.game.musicaGlobal.musica.stop();
+        this.game.musicaGlobal.musica = null;
+
+        this.scene.stop("Tutorial2")
+        this.scene.start("Menu")
+                        
+      });
 
     this.physics.add.collider(player1, platform);
     this.physics.add.collider(player2, platform);
     this.physics.add.collider(player2, player1);
-
-    josh.setVisible(false);
-    this.physics.add.collider(josh,borde, parar, null, this);
-    this.physics.add.overlap(player1, joshimage);
-    this.physics.add.overlap(josh, player2);
-    this.physics.add.overlap(platform, josh);
-
-    function parar(josh,borde){
-        
-        joshaudio.stop();
-        josh.disableBody(true,true);
-        this.game.musicaGlobal.musica.resume();  
-    }
 
     bola = this.physics.add.group();
     this.physics.add.collider(player2, bola, hitbola, null, this);
@@ -339,6 +390,22 @@ var Game = new Phaser.Class({
         numBolas--;
     }
     
+    function reiniciarCorazones() {
+        player1.vida = 4;
+        player2.vida = 4;
+    }
+
+    function actualizarCorazones(vida, grupoCorazones) {
+        var i = 0;
+        grupoCorazones.children.iterate(function (child) {
+            if (i >= vida) {
+                child.setTint('#FDFEFE'); 
+            } else {
+                child.clearTint();
+            }
+            i++;
+        });
+    }
 
     function hitbola (player2, bola)
     {
@@ -354,11 +421,11 @@ var Game = new Phaser.Class({
 
     })
         if(player2.vida == 1 && !hit){
+            reiniciarCorazones();
+            actualizarCorazones(player2.vida, Corazon_Morado);
+
             player2.setTint(0xff0000);
-            player2.vida--;
-            joshaudio.stop();
-            variablejose = false;
-            this.scene.start('Victoria1');          
+            player2.vida--;          
         }
         
         else if(!hit){
@@ -381,7 +448,6 @@ var Game = new Phaser.Class({
          hit = true;
          movemorado = false;
          tiempomorado = 0;
-
      
     }
 
@@ -406,11 +472,11 @@ var Game = new Phaser.Class({
 
     })
         if(player1.vida == 1 && !hitrojo){
+            reiniciarCorazones();
+            actualizarCorazones(player1.vida, Corazon_Rojo);
+            
             player1.setTint(0xff0000);
-            player1.vida--;
-            joshaudio.stop();
-            variablejose=false;
-            this.scene.start('Victoria2');   
+            player1.vida--;  
         }
         
         else if(!hitrojo){
@@ -591,34 +657,10 @@ var Game = new Phaser.Class({
     this.teclaO = this.input.keyboard.addKey(keyCodes.O);
     this.teclaU = this.input.keyboard.addKey(keyCodes.U);
 
-    this.ajustes = this.add.sprite(60, 50, 'Rajustes').setInteractive();
-
-    this.ajustes.on('pointerover', () => {
-        boton.play();
-      this.ajustes.setFrame(1);
-    });
-    this.ajustes.on('pointerout', () => {
-      this.ajustes.setFrame(0);
-    });
-    this.ajustes.on('pointerdown', () => {
-    pulsar.play();
-        joshaudio.pause();
-        variablejose = true;
-      this.scene.pause('Game');
-      this.scene.launch('AjustesP')
-    });
-
-
-
 },
 
  update ()
-{
-
-    if(variablejose){
-        joshaudio.resume();
-    }
-    
+{   
     
      if (this.teclaE.isDown && derecha){
         player1.anims.play('rojo atack right', true);
@@ -852,7 +894,6 @@ var Game = new Phaser.Class({
             player2.anims.play('morado jump right', true);
         }
         derecha2 = true;
-
         
     }
 

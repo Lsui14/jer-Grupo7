@@ -21,17 +21,18 @@ var Ajustes = new Phaser.Class({
         this.load.spritesheet('actualizar', 'interfaces/boton_actualizar.png',  { frameWidth: 260, frameHeight: 105 });
         this.load.spritesheet('borrar', 'interfaces/boton_borrar.png',  { frameWidth: 260, frameHeight: 105 });
         this.load.image('log', 'interfaces/input_blanco.png');
+
     },
     
     create() {
 
       this.fondo = this.add.image(450,253,'interfazAjustes');
-      pulsar = this.sound.add('pulsado');
-      boton = this.sound.add('boton');
-      escribirpassword = false;
+       pulsar = this.sound.add('pulsado');
+       boton = this.sound.add('boton');
+
+       escribirpassword = false;
       valor = '';
       nombre = game.usuario.id;
-
 
       const textEntry = this.add.text(200, 295, game.usuario.id, { font: '30px Courier', fill: '#5c330a' });
 
@@ -162,17 +163,15 @@ var Ajustes = new Phaser.Class({
     
     });
 
-
-      this.audioon = this.add.sprite(300, 120, 'audio_on').setInteractive();
+       this.audioon = this.add.sprite(300, 120, 'audio_on').setInteractive();
+       
        this.audioon.on('pointerover', () => {
         boton.play();
         this.audioon.setFrame(1);
       });
-
       this.audioon.on('pointerout', () => {
         this.audioon.setFrame(0);
       });
-
       this.audioon.on('pointerdown', () => {
         error.text = ""; 
         informacionActualizar.text = ""; 
@@ -237,7 +236,7 @@ var Ajustes = new Phaser.Class({
       });
 
 
-
+    
     },
 
     update(){

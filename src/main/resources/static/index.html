@@ -14,12 +14,18 @@
     <script src = "escenas/creditos.js"></script>
     <script src="escenas/ajustes.js"></script>
     <script src="escenas/ajustes_partida.js"></script>
+    <script src="escenas/ajustes_partidaWS.js"></script>
     <script src="escenas/menu.js"></script>
     <script src="escenas/game.js"></script>
+    <script src="escenas/gameWS.js"></script>
     <script src="escenas/victoria1.js"></script>
     <script src="escenas/victoria2.js"></script>
     <script src="escenas/preguntaSalir.js"></script>
+    <script src="escenas/preguntaSalirWS.js"></script>
     <script src="escenas/login.js"></script>
+    <script src="escenas/seleccion.js"></script>
+    <script src="escenas/esperando.js"></script>
+    <script src="escenas/tutorial.js"></script>
 
     <script>
 
@@ -34,16 +40,21 @@
                 debug: false
             }
         },
-        scene: [LogIn,  Menu, Game, Ajustes,AjustesP, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir]
+        scene: [ LogIn, Menu,Seleccion,Esperar, GameWS, Tutorial, Game, Ajustes, AjustesP, AjustesPWS, Creditos, Controles, Victoria1, Victoria2, PreguntaSalir, PreguntaSalirWS]
     };
     
     var game = new Phaser.Game(config);
-
-    game.usuario = null; 
+    game.usuario = null;
     game.musicaGlobal = {
         musica: null,
         mute: false
+        
     };
+    
+    game.connection = null; 
+    game.conexion = false; 
+    game.conexion2= false; 
+    
     </script>
 
 </body>

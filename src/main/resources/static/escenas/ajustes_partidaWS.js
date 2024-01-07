@@ -1,11 +1,11 @@
-var AjustesP = new Phaser.Class({
+var AjustesPWS = new Phaser.Class({
 
     Extends: Phaser.Scene,
 
     initialize:
 
-        function AjustesP() {
-            Phaser.Scene.call(this, { key: 'AjustesP' });
+        function AjustesPWS() {
+            Phaser.Scene.call(this, { key: 'AjustesPWS' });
         },
     
     preload(){
@@ -68,8 +68,16 @@ var AjustesP = new Phaser.Class({
       });
       this.flecha.on('pointerdown', () => {
         pulsar.play();
-        this.scene.stop("AjustesP")
-        this.scene.resume("Game")
+        this.scene.stop("AjustesPWS")
+        this.scene.resume("GameWS")
+        
+        msg = {
+                name: "Play",
+                destiny: "Other",
+
+            }
+            connection.send(JSON.stringify(msg));
+        
       });
 
       this.salir = this.add.sprite(450, 370, 'salir').setInteractive();
@@ -86,8 +94,8 @@ var AjustesP = new Phaser.Class({
       this.salir.on('pointerdown', () => {
         pulsar.play();
 
-        this.scene.pause("AjustesP")
-        this.scene.start("PreguntaSalir")
+        this.scene.pause("AjustesPWS")
+        this.scene.start("PreguntaSalirWS")
        
   
     }); 

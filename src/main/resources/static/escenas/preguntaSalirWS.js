@@ -1,11 +1,11 @@
-var PreguntaSalir = new Phaser.Class({
+var PreguntaSalirWS = new Phaser.Class({
 
     Extends: Phaser.Scene,
 
     initialize:
 
-        function PreguntaSalir() {
-            Phaser.Scene.call(this, { key: 'PreguntaSalir' });
+        function PreguntaSalirWS() {
+            Phaser.Scene.call(this, { key: 'PreguntaSalirWS' });
         },
     
     preload(){
@@ -41,10 +41,22 @@ var PreguntaSalir = new Phaser.Class({
         this.game.musicaGlobal.musica.stop();
         this.game.musicaGlobal.musica = null;
 
-        this.scene.stop("Game")
+	   msg = {
+	                name: "Play",
+	                destiny: "Other",
+	
+	            }
+	            connection.send(JSON.stringify(msg))
+	         
+		
+        this.scene.stop("GameWS")
         this.scene.start("Menu")
         this.scene.stop ('Esperar');
-                
+        connection.close(); 
+        conexion = false; 
+        conexion2 = false; 
+        
+     
       });
 
 
@@ -60,8 +72,8 @@ var PreguntaSalir = new Phaser.Class({
       this.no.on('pointerdown', () => {
         pulsar.play();
 
-        this.scene.stop("preguntaSalir")
-        this.scene.start("AjustesP")
+        this.scene.stop("preguntaSalirWS")
+        this.scene.start("AjustesPWS")
         
       });
 

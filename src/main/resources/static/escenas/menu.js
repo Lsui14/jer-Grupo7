@@ -22,25 +22,25 @@ var Menu = new Phaser.Class({
 
         this.load.image('fondo', 'interfaces/interfaz_ajustes_p.png');
         this.load.spritesheet('cargar', 'assets/cargar.png',  { frameWidth: 93.5, frameHeight: 94 });
+    
+      this.load.image('gatotutorial', 'interfaces/gatotutorial_portada.png');
+        this.load.spritesheet('btutorial', 'interfaces/boton_tutorial.png',  { frameWidth: 282, frameHeight: 105 });
+    
+    
     },
     
     create() {
+	
+	if(this.game.musicaGlobal.musica){
+        this.game.musicaGlobal.musica.stop();
+        this.game.musicaGlobal.musica = null;
 
-      this.anims.create({
-        key: 'Acargar',
-        frames: this.anims.generateFrameNumbers('cargar', { start: 0, end: 11}),
-        frameRate: 10,
-        repeat: -1
-    });
-
-    
+       }
 
     this.add.image(450,253,'interfazMenu');
 
     pulsar = this.sound.add('pulsado');
     boton = this.sound.add('boton');
-
-    
 
     
     if (!this.game.musicaGlobal.musica) {
@@ -68,12 +68,14 @@ var Menu = new Phaser.Class({
       this.add.image(450,253,'fondo');
       carga1 = this.add.sprite(450,253,'cargar');
       carga1.anims.play('Acargar');
-
-      this.scene.transition({
-        target: 'Game', 
-        duration: 3500, 
-       })
-
+      game.scene.stop('LogIn'); 
+  
+      /*this.scene.transition({
+        target: 'GameWS', 
+        duration: 4000, 
+       })*/
+       game.scene.start('Seleccion'); 
+		game.scene.stop('Menu');
     });
 
 
@@ -117,19 +119,36 @@ var Menu = new Phaser.Class({
         pulsar.play();
         this.scene.start('Ajustes');
       });
-      
-      const keyCodes= Phaser.Input.Keyboard.KeyCodes;
-      this.teclaT = this.input.keyboard.addKey(keyCodes.T);
+
         
+  this.add.image(787,414,'gatotutorial').setScale(0.65);
+  this.btutorial = this.add.sprite(797, 293, 'btutorial').setInteractive();
+    this.btutorial.on('pointerover', () => {
+    boton.play();
+    this.btutorial.setFrame(1);
+    });
+    this.btutorial.on('pointerout', () => {
+      this.btutorial.setFrame(0);
+    });
+    this.btutorial.on('pointerdown', () => {
+      pulsar.play();
+      this.add.image(450,253,'fondo');
+      carga1 = this.add.sprite(450,253,'cargar');
+      carga1.anims.play('Acargar');
+	
+	this.scene.start('Tutorial');
+	this.scene.launch ('Esperar');
+      /*this.scene.transition({
+        target: 'Tutorial', 
+        duration: 6000, 
+       })*/
+      
+    });
     },
-    
 
     update(){
-      
-      if (this.teclaT.isDown){
-        game.scene.start('Chat');
-      }
-
-
+		
+      	this.scene.stop ('Esperar');
+      	
     }
 });
