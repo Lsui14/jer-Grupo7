@@ -202,17 +202,34 @@ Si decides pulsar el botón de salir te dirige a una nueva pantalla en la cual s
 
 *Interfaz Preguntar Salir*
 
+Interfaces fase 4 y 5:
+
+En primer lugar, se ha creado una nueva interfaz de selección de modo (local o en línea). 
+
+![ModoDeJuego](Imágenes/Interfaces_nuevas/Interfaz_SelecciónModo.png)
+
+*Interfaz Selección de Modo de Juego*
+
+Además, se ha mejorado la pantalla de carga, siendo más estética.
+
+![PantallaCargaActualizada](Imágenes/Interfaces_nuevas/Interfaz_PantallaCarga.png)
+
+*Interfaz Pantalla de Carga*
+
+Por último, como última interfaz se ha creado una de tutorial, la cual explica controles, power ups y forma de ganar a ambos jugadores.
+
+![Tutorial](Imágenes/Interfaces_nuevas/Interfaz_Tutorial.png)
+
+*Interfaz Tutorial*
+
 A continuación se puede observar en el flujo de interfaces lo comentado anteriormente de forma más rápida y visual. 
 ![FlujoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo.png)
 
 *Flujo de Interfaces*
 
-## Nuevo flujograma e interfaces
-Tras la fase 3 de nuestros proyecto, en la cual debemos usar REST para incluir a nuestro juego su back-end, se ha creado una interfaz nueva la cual permite a los jugadores registrarse definiendo una contraseña propia. Tras esto, el jugador puede inciar el juego, lo que le llevará a la pantalla principal.
-Otra modificación que se ha hecho ha sido la pantalla de ajustes, la cual cuenta con una nueva funcionalidad que permite al usuario cambiar su contraseña o borrar su registro (lo que le lleverá nuevamente a la pantalla de registro).
-
-Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriormente.
-![FlujoNuevoInterfaces](Imágenes/Interfaces_nuevas/Diagrama_Flujo_Actualizado.png)
+## Nuevo flujograma e interfaces de la fase 4 y 5
+Tras la fase 4 y 5 de nuestros proyecto, así quedaría nuestro flujograma final:
+![FlujoInterfacesFinal](Imágenes/Interfaces_nuevas/Diagrama_Flujo_Actualizado_Fase4.png)
 
 *Flujo Actualizado*
 
