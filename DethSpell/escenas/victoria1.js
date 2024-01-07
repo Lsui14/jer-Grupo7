@@ -23,12 +23,21 @@ var Victoria1 = new Phaser.Class({
        }
        ganar.play();
         iniciar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        
+        if (connection != null){
+        connection.close();  
+        conexion = false; 
+        conexion2 = false; 
+        }
     },
 
     update(){
         if(iniciar.isDown){
             this.scene.start('Menu');
+            this.scene.stop('GameWS');
         }
+        
+        
         
     }
 });

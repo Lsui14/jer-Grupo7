@@ -19,7 +19,7 @@ var powerups;
 var josh;
 var joshimage;
 var variablejose= false;
-
+connection = null; 
 
 var Game = new Phaser.Class({
 

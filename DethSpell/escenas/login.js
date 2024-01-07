@@ -76,6 +76,7 @@ var LogIn = new Phaser.Class({
                 }).done(function (usuario) {
                     console.log('Usuario iniciado: ' + JSON.stringify(usuario));
                     game.usuario = usuario;
+                    game.scene.stop('LogIn');
                     game.scene.start('Menu');
                     musicafondo.stop();
                     passEntry.text="";

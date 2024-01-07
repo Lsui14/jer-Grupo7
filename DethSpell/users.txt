@@ -1,0 +1,8 @@
+Alex;12345;
+eduardo;a;
+a;123;
+3;3;
+2;1;
+1;2;
+Dani;12;
+tumadre;1;
