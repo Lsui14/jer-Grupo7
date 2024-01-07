@@ -219,7 +219,7 @@ Este es el nuevo diagrama de flujo tras las modificaciones explicadas anteriorme
 ## Diagrama de clases
 Se ha creado un diagrama de las clases en la que no se ha incluido ni atributos ni métodos. Se muestran las relaciones entre las clases (asociación agregación/composición o herencia) y se diferenciarán con un código de color. 
 
-![DiagramaClases](Imágenes/Diagramas_UML/Diagrama_de_clases.png)
+![DiagramaClases](Imágenes/Diagramas_UML/Diagrama_de_clases2.png)
 
 *Diagrama de clases*
 ## Implementación con API REST
