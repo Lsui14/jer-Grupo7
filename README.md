@@ -11,6 +11,8 @@ Gustavo Herrero Lapuente (gherrerol): g.herrerol.2020@alumnos.urjc.es
 
 María Dolores Nájera-Alesón Hernández de Santamaría (lolanaleson): mad.najeraaleso.2021@alumnos.urjc.es
 
+Video presentación de YouTube: https://youtu.be/Fg1feK4LsTo
+
 
 
 ![logo_GameNet](Imágenes/logo_gamenet.png)
